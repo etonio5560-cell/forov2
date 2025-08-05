@@ -256,7 +256,7 @@
             padding: 5rem 2rem;
             background: #f8f9fa;
         }
-
+        
         .gallery-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -276,6 +276,8 @@
             position: relative;
             cursor: pointer;
             transition: all 0.3s ease;
+            background-size: cover;
+            background-position: center;
         }
 
         .gallery-item:hover {
@@ -443,7 +445,6 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header id="header">
         <nav>
             <div class="logo">Turismo+</div>
@@ -458,7 +459,6 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero" id="inicio">
         <div class="hero-content">
             <h1>Explora el mundo con confianza</h1>
@@ -467,7 +467,6 @@
         </div>
     </section>
 
-    <!-- Services Section -->
     <section class="services" id="servicios">
         <h2 class="section-title animate-on-scroll">Nuestros Servicios</h2>
         <div class="services-grid">
@@ -489,52 +488,50 @@
         </div>
     </section>
 
-    <!-- Gallery Section -->
     <section class="gallery" id="destinos">
         <div class="gallery-container">
-            <h2 class="section-title animate-on-scroll">Destinos Populares</h2>
+            <h2 class="section-title animate-on-scroll">Destinos del Valle de Uco</h2>
             <div class="gallery-grid">
-                <div class="gallery-item animate-on-scroll">
+                <div class="gallery-item animate-on-scroll" style="background-image: url('img/valle-de-uco-1.jpg');">
                     <div class="gallery-content">
-                        <h4>París, Francia</h4>
-                        <p>La ciudad del amor accesible para todos</p>
+                        <h4>Valle de Uco, Mendoza</h4>
+                        <p>Rutas del vino y paisajes majestuosos</p>
                     </div>
                 </div>
-                <div class="gallery-item animate-on-scroll">
+                <div class="gallery-item animate-on-scroll" style="background-image: url('img/valle-de-uco-2.jpg');">
                     <div class="gallery-content">
-                        <h4>Barcelona, España</h4>
-                        <p>Arte, cultura y arquitectura inclusiva</p>
+                        <h4>Tupungato, Mendoza</h4>
+                        <p>Aventuras en alta montaña y viñedos</p>
                     </div>
                 </div>
-                <div class="gallery-item animate-on-scroll">
+                <div class="gallery-item animate-on-scroll" style="background-image: url('img/valle-de-uco-3.jpg');">
                     <div class="gallery-content">
-                        <h4>Roma, Italia</h4>
-                        <p>Historia milenaria al alcance de todos</p>
+                        <h4>Tunuyán, Mendoza</h4>
+                        <p>Paisajes de río, montaña y aventura</p>
                     </div>
                 </div>
-                <div class="gallery-item animate-on-scroll">
+                <div class="gallery-item animate-on-scroll" style="background-image: url('img/valle-de-uco-4.jpg');">
                     <div class="gallery-content">
-                        <h4>Londres, Reino Unido</h4>
-                        <p>Tradición y modernidad sin barreras</p>
+                        <h4>San Carlos, Mendoza</h4>
+                        <p>Naturaleza, historia y tradiciones gauchas</p>
                     </div>
                 </div>
-                <div class="gallery-item animate-on-scroll">
+                <div class="gallery-item animate-on-scroll" style="background-image: url('img/valle-de-uco-5.jpg');">
                     <div class="gallery-content">
-                        <h4>Tokio, Japón</h4>
-                        <p>Innovación y cultura accesible</p>
+                        <h4>Manzano Histórico, Mendoza</h4>
+                        <p>Recorriendo la huella de San Martín</p>
                     </div>
                 </div>
-                <div class="gallery-item animate-on-scroll">
+                <div class="gallery-item animate-on-scroll" style="background-image: url('img/valle-de-uco-6.jpg');">
                     <div class="gallery-content">
-                        <h4>Nueva York, EE.UU.</h4>
-                        <p>La gran manzana para todos</p>
+                        <h4>Laguna del Diamante, Mendoza</h4>
+                        <p>Un espejo de agua natural en la cordillera</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
     <section class="testimonials" id="testimonios">
         <h2 class="section-title animate-on-scroll">Lo que dicen nuestros clientes</h2>
         <div class="testimonials-grid">
@@ -556,7 +553,6 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section class="contact" id="contacto">
         <div class="contact-container">
             <h2 class="section-title animate-on-scroll">Contáctanos</h2>
@@ -578,7 +574,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2024 Turismo+. Todos los derechos reservados. Turismo inclusivo para todos.</p>
     </footer>
@@ -593,13 +588,12 @@
                 header.classList.remove('header-scrolled');
             }
         });
-
+        
         // Scroll animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
-
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -607,7 +601,6 @@
                 }
             });
         }, observerOptions);
-
         document.querySelectorAll('.animate-on-scroll').forEach(el => {
             observer.observe(el);
         });
@@ -663,5 +656,5 @@
             card.style.animation = 'float 6s ease-in-out infinite';
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96a81a9b2541d7ef',t:'MTc1NDQxNTg4MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
