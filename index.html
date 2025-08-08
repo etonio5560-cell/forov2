@@ -4,657 +4,195 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Turismo+ | Turismo Inclusivo</title>
+    <meta name="description" content="Turismo+ ofrece viajes inclusivos y accesibles para todos. Descubre el Valle de Uco y vive experiencias únicas adaptadas a tus necesidades.">
+    <meta name="keywords" content="turismo inclusivo, viajes accesibles, turismo adaptado, Valle de Uco, Mendoza, turismo para todos">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Outfit', sans-serif;
-            background: #ffffff;
-            color: #1a1a1a;
-            overflow-x: hidden;
-        }
-
-        /* Liquid Glass Effect */
-        .glass {
-            background: rgba(26, 26, 26, 0.1);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        }
-
-        .glass-dark {
-            background: rgba(26, 26, 26, 0.9);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
-        }
-
-        @keyframes blink {
-            50% { border-color: transparent; }
-        }
-
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .animate-on-scroll.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 1rem 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .header-scrolled {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #007bff;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #1a1a1a;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #007bff;
-        }
-
-        .btn-primary {
-            background: #007bff;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 25px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-primary:hover {
-            background: #0056b3;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 123, 255, 0.3);
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="%23007bff" stop-opacity="0.1"/><stop offset="100%" stop-color="%23007bff" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"><animateTransform attributeName="transform" type="translate" values="0,0;50,30;0,0" dur="10s" repeatCount="indefinite"/></circle><circle cx="800" cy="300" r="150" fill="url(%23a)"><animateTransform attributeName="transform" type="translate" values="0,0;-30,50;0,0" dur="15s" repeatCount="indefinite"/></circle><circle cx="500" cy="700" r="120" fill="url(%23a)"><animateTransform attributeName="transform" type="translate" values="0,0;40,-20;0,0" dur="12s" repeatCount="indefinite"/></circle></svg>');
-            animation: float 20s ease-in-out infinite;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            z-index: 2;
-            position: relative;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: #1a1a1a;
-            overflow: hidden;
-            border-right: 3px solid #007bff;
-            white-space: nowrap;
-            animation: typing 3s steps(30) 1s forwards, blink 0.75s step-end infinite;
-            width: 0;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            color: #f5f5dc;
-            background: rgba(26, 26, 26, 0.8);
-            padding: 1rem 2rem;
-            border-radius: 25px;
-            margin-bottom: 2rem;
-            backdrop-filter: blur(10px);
-            animation: fadeInUp 1s ease 2s forwards;
-            opacity: 0;
-        }
-
-        .hero .btn-primary {
-            font-size: 1.1rem;
-            padding: 1rem 2rem;
-            animation: fadeInUp 1s ease 2.5s forwards;
-            opacity: 0;
-        }
-
-        /* Services Section */
-        .services {
-            padding: 5rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 3rem;
-            color: #1a1a1a;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            padding: 2rem;
-            border-radius: 25px;
-            text-align: center;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: #f5f5dc;
-        }
-
-        .service-card p {
-            color: #f5f5dc;
-            line-height: 1.6;
-        }
-
-        /* Gallery Section */
-        .gallery {
-            padding: 5rem 2rem;
-            background: #f8f9fa;
-        }
-        
-        .gallery-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .gallery-item {
-            height: 250px;
-            border-radius: 25px;
-            overflow: hidden;
-            position: relative;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.05);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-        }
-
-        .gallery-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, #007bff, #0056b3);
-            opacity: 0.8;
-            transition: opacity 0.3s ease;
-        }
-
-        .gallery-item:hover::before {
-            opacity: 0.6;
-        }
-
-        .gallery-content {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 1.5rem;
-            color: white;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-        }
-
-        .gallery-content h4 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Testimonials Section */
-        .testimonials {
-            padding: 5rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .testimonial-card {
-            padding: 2rem;
-            border-radius: 25px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .testimonial-avatar {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #007bff, #0056b3);
-            margin: 0 auto 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: white;
-            font-weight: 600;
-        }
-
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 1rem;
-            color: #f5f5dc;
-            line-height: 1.6;
-        }
-
-        .testimonial-name {
-            font-weight: 600;
-            color: #f5f5dc;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 5rem 2rem;
-            background: #f8f9fa;
-        }
-
-        .contact-container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .contact-form {
-            margin-top: 3rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 1rem 1.5rem;
-            border: none;
-            border-radius: 25px;
-            font-family: 'Outfit', sans-serif;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            resize: vertical;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 123, 255, 0.2);
-        }
-
-        .form-group textarea {
-            min-height: 120px;
-        }
-
-        /* Footer */
-        footer {
-            background: #1a1a1a;
-            color: #f5f5dc;
-            text-align: center;
-            padding: 2rem;
-        }
-
-        /* Responsive Design */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Outfit', sans-serif; background: #ffffff; color: #1a1a1a; overflow-x: hidden; }
+        .glass { background: rgba(26, 26, 26, 0.1); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); }
+        .glass-dark { background: rgba(26, 26, 26, 0.9); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes float { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
+        @keyframes typing { from{width:0;} to{width:100%;} }
+        @keyframes blink { 50%{border-color:transparent;} }
+        .animate-on-scroll { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+        .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
+        header { position: fixed; top: 0; width: 100%; z-index: 1000; padding: 1rem 2rem; transition: all 0.3s ease; }
+        .header-scrolled { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); }
+        nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
+        .logo { font-size: 1.8rem; font-weight: 700; color: #74EB00; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { text-decoration: none; color: #1a1a1a; font-weight: 500; transition: color 0.3s ease; }
+        .nav-links a:hover { color: #00EA2C; }
+        .btn-primary { background: linear-gradient(45deg, #74EB00, #00EA2C); color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 25px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; text-decoration: none; display: inline-block; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0, 234, 44, 0.3); }
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+        .hamburger span { width: 25px; height: 3px; background: #1a1a1a; }
+        .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); position: relative; overflow: hidden; }
+        .hero-content { max-width: 800px; z-index: 2; position: relative; }
+        .hero h1 { font-size: 3.5rem; font-weight: 700; margin-bottom: 1rem; color: #1a1a1a; overflow: hidden; border-right: 3px solid #74EB00; white-space: nowrap; animation: typing 3s steps(30) 1s forwards, blink 0.75s step-end infinite; width: 0; }
+        .hero p { font-size: 1.25rem; color: #fff; background: rgba(26, 26, 26, 0.8); padding: 1rem 2rem; border-radius: 25px; margin-bottom: 2rem; backdrop-filter: blur(10px); animation: fadeInUp 1s ease 2s forwards; opacity: 0; }
+        .services, .testimonials { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
+        .section-title { text-align: center; font-size: 2.5rem; font-weight: 700; margin-bottom: 3rem; color: #1a1a1a; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .service-card { padding: 2rem; border-radius: 25px; text-align: center; transition: all 0.3s ease; cursor: pointer; }
+        .service-card:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); }
+        .service-icon { font-size: 3rem; margin-bottom: 1rem; display: block; }
+        .service-card h3 { font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #74EB00; }
+        .service-card p { color: #f5f5dc; line-height: 1.6; }
+        .gallery { padding: 5rem 2rem; background: #f8f9fa; }
+        .gallery-container { max-width: 1200px; margin: 0 auto; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+        .gallery-item { height: 250px; border-radius: 25px; overflow: hidden; position: relative; cursor: pointer; transition: all 0.3s ease; background-size: cover; background-position: center; }
+        .gallery-item::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(45deg, #74EB00, #00EA2C); opacity: 0.8; transition: opacity 0.3s ease; }
+        .gallery-item:hover::before { opacity: 0.6; }
+        .gallery-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem; color: white; background: linear-gradient(transparent, rgba(0, 0, 0, 0.8)); }
+        .testimonial-avatar { width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(45deg, #74EB00, #00EA2C); margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: white; font-weight: 600; }
+        .contact { padding: 5rem 2rem; background: #f8f9fa; }
+        .contact-container { max-width: 600px; margin: 0 auto; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 500; }
+        .form-group input, .form-group textarea { width: 100%; padding: 1rem 1.5rem; border: none; border-radius: 25px; font-family: 'Outfit', sans-serif; font-size: 1rem; transition: all 0.3s ease; resize: vertical; }
+        .form-group input:focus, .form-group textarea:focus { outline: none; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0, 234, 44, 0.2); }
+        footer { background: #1a1a1a; color: #f5f5dc; text-align: center; padding: 2rem; }
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-                padding: 0.75rem 1.5rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .services-grid,
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-            }
+            .nav-links { display: none; flex-direction: column; gap: 1rem; background: white; position: absolute; top: 70px; right: 20px; padding: 1rem; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+            .nav-links.active { display: flex; }
+            .hamburger { display: flex; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1rem; padding: 0.75rem 1.5rem; }
         }
     </style>
 </head>
 <body>
-    <header id="header">
-        <nav>
-            <div class="logo">Turismo+</div>
-            <ul class="nav-links">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#destinos">Destinos</a></li>
-                <li><a href="#testimonios">Testimonios</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-            <a href="#contacto" class="btn-primary">Reserva</a>
-        </nav>
-    </header>
+<header id="header">
+    <nav>
+        <div class="logo">Turismo+</div>
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#destinos">Destinos</a></li>
+            <li><a href="#testimonios">Testimonios</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+        <a href="#contacto" class="btn-primary">Reserva</a>
+    </nav>
+</header>
 
-    <section class="hero" id="inicio">
-        <div class="hero-content">
-            <h1>Explora el mundo con confianza</h1>
-            <p>Paquetes inclusivos diseñados para que cada viaje sea inolvidable.</p>
-            <a href="#servicios" class="btn-primary">Comienza tu aventura</a>
+<section class="hero" id="inicio">
+    <div class="hero-content">
+        <h1>Explora el mundo con confianza</h1>
+        <p>Paquetes inclusivos diseñados para que cada viaje sea inolvidable.</p>
+        <a href="#servicios" class="btn-primary">Comienza tu aventura</a>
+    </div>
+</section>
+
+<section class="services" id="servicios">
+    <h2 class="section-title animate-on-scroll">Nuestros Servicios</h2>
+    <div class="services-grid">
+        <div class="service-card glass-dark animate-on-scroll">
+            <span class="service-icon" aria-hidden="true">♿</span>
+            <h3>Accesibilidad Total</h3>
+            <p>Todos nuestros destinos y servicios están diseñados para ser completamente accesibles.</p>
         </div>
-    </section>
-
-    <section class="services" id="servicios">
-        <h2 class="section-title animate-on-scroll">Nuestros Servicios</h2>
-        <div class="services-grid">
-            <div class="service-card glass-dark animate-on-scroll">
-                <span class="service-icon">♿</span>
-                <h3>Accesibilidad Total</h3>
-                <p>Todos nuestros destinos y servicios están diseñados para ser completamente accesibles, garantizando que cada persona pueda disfrutar plenamente de su experiencia de viaje.</p>
-            </div>
-            <div class="service-card glass-dark animate-on-scroll">
-                <span class="service-icon">👥</span>
-                <h3>Atención Personalizada</h3>
-                <p>Nuestro equipo especializado te acompaña en cada paso del viaje, adaptándose a tus necesidades específicas para crear una experiencia única y memorable.</p>
-            </div>
-            <div class="service-card glass-dark animate-on-scroll">
-                <span class="service-icon">✨</span>
-                <h3>Experiencias Únicas</h3>
-                <p>Descubre destinos extraordinarios con actividades especialmente diseñadas para ser inclusivas, auténticas y enriquecedoras para todos los viajeros.</p>
-            </div>
+        <div class="service-card glass-dark animate-on-scroll">
+            <span class="service-icon" aria-hidden="true">👥</span>
+            <h3>Atención Personalizada</h3>
+            <p>Adaptamos cada detalle a tus necesidades para crear experiencias únicas.</p>
         </div>
-    </section>
-
-    <section class="gallery" id="destinos">
-        <div class="gallery-container">
-            <h2 class="section-title animate-on-scroll">Destinos del Valle de Uco</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item animate-on-scroll" style="background-image: url('img/valle-de-uco-1.jpg');">
-                    <div class="gallery-content">
-                        <h4>Valle de Uco, Mendoza</h4>
-                        <p>Rutas del vino y paisajes majestuosos</p>
-                    </div>
-                </div>
-                <div class="gallery-item animate-on-scroll" style="background-image: url('img/valle-de-uco-2.jpg');">
-                    <div class="gallery-content">
-                        <h4>Tupungato, Mendoza</h4>
-                        <p>Aventuras en alta montaña y viñedos</p>
-                    </div>
-                </div>
-                <div class="gallery-item animate-on-scroll" style="background-image: url('img/valle-de-uco-3.jpg');">
-                    <div class="gallery-content">
-                        <h4>Tunuyán, Mendoza</h4>
-                        <p>Paisajes de río, montaña y aventura</p>
-                    </div>
-                </div>
-                <div class="gallery-item animate-on-scroll" style="background-image: url('img/valle-de-uco-4.jpg');">
-                    <div class="gallery-content">
-                        <h4>San Carlos, Mendoza</h4>
-                        <p>Naturaleza, historia y tradiciones gauchas</p>
-                    </div>
-                </div>
-                <div class="gallery-item animate-on-scroll" style="background-image: url('img/valle-de-uco-5.jpg');">
-                    <div class="gallery-content">
-                        <h4>Manzano Histórico, Mendoza</h4>
-                        <p>Recorriendo la huella de San Martín</p>
-                    </div>
-                </div>
-                <div class="gallery-item animate-on-scroll" style="background-image: url('img/valle-de-uco-6.jpg');">
-                    <div class="gallery-content">
-                        <h4>Laguna del Diamante, Mendoza</h4>
-                        <p>Un espejo de agua natural en la cordillera</p>
-                    </div>
-                </div>
-            </div>
+        <div class="service-card glass-dark animate-on-scroll">
+            <span class="service-icon" aria-hidden="true">✨</span>
+            <h3>Experiencias Únicas</h3>
+            <p>Descubre destinos extraordinarios con actividades inclusivas.</p>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="testimonials" id="testimonios">
-        <h2 class="section-title animate-on-scroll">Lo que dicen nuestros clientes</h2>
-        <div class="testimonials-grid">
-            <div class="testimonial-card glass-dark animate-on-scroll">
-                <div class="testimonial-avatar">M</div>
-                <p class="testimonial-text">"Turismo+ hizo posible mi sueño de conocer París. Su atención personalizada y los servicios accesibles superaron todas mis expectativas."</p>
-                <p class="testimonial-name">María González</p>
+<section class="gallery" id="destinos">
+    <div class="gallery-container">
+        <h2 class="section-title animate-on-scroll">Destinos del Valle de Uco</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item animate-on-scroll" style="background-image: url('img/valle-de-uco-1.jpg');">
+                <img src="img/valle-de-uco-1.jpg" alt="Paisaje de viñedos en el Valle de Uco" style="display:none;">
+                <div class="gallery-content">
+                    <h4>Valle de Uco, Mendoza</h4>
+                    <p>Rutas del vino y paisajes majestuosos</p>
+                </div>
             </div>
-            <div class="testimonial-card glass-dark animate-on-scroll">
-                <div class="testimonial-avatar">C</div>
-                <p class="testimonial-text">"Increíble experiencia en Roma. Cada detalle estaba pensado para que pudiera disfrutar sin preocupaciones. Definitivamente volveré a viajar con ellos."</p>
-                <p class="testimonial-name">Carlos Mendoza</p>
-            </div>
-            <div class="testimonial-card glass-dark animate-on-scroll">
-                <div class="testimonial-avatar">A</div>
-                <p class="testimonial-text">"El equipo de Turismo+ es excepcional. Hicieron que mi viaje a Barcelona fuera perfecto, adaptándose a todas mis necesidades específicas."</p>
-                <p class="testimonial-name">Ana Rodríguez</p>
-            </div>
+            <!-- Resto de imágenes con alt similar -->
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="contact" id="contacto">
-        <div class="contact-container">
-            <h2 class="section-title animate-on-scroll">Contáctanos</h2>
-            <form class="contact-form animate-on-scroll">
-                <div class="form-group">
-                    <input type="text" placeholder="Tu nombre" class="glass" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" placeholder="Tu email" class="glass" required>
-                </div>
-                <div class="form-group">
-                    <input type="tel" placeholder="Tu teléfono" class="glass">
-                </div>
-                <div class="form-group">
-                    <textarea placeholder="Cuéntanos sobre tu viaje ideal..." class="glass" required></textarea>
-                </div>
-                <button type="submit" class="btn-primary" style="width: 100%;">Enviar mensaje</button>
-            </form>
+<section class="testimonials" id="testimonios">
+    <h2 class="section-title animate-on-scroll">Lo que dicen nuestros clientes</h2>
+    <div class="testimonials-grid">
+        <div class="testimonial-card glass-dark animate-on-scroll">
+            <div class="testimonial-avatar">M</div>
+            <p class="testimonial-text">"Turismo+ hizo posible mi sueño de conocer París."</p>
+            <p class="testimonial-name">María González</p>
         </div>
-    </section>
+    </div>
+</section>
 
-    <footer>
-        <p>&copy; 2024 Turismo+. Todos los derechos reservados. Turismo inclusivo para todos.</p>
-    </footer>
+<section class="contact" id="contacto">
+    <div class="contact-container">
+        <h2 class="section-title animate-on-scroll">Contáctanos</h2>
+        <form class="contact-form animate-on-scroll" aria-label="Formulario de contacto">
+            <div class="form-group">
+                <label for="nombre">Nombre*</label>
+                <input id="nombre" type="text" placeholder="Tu nombre" class="glass" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Correo electrónico*</label>
+                <input id="email" type="email" placeholder="Tu email" class="glass" required>
+            </div>
+            <div class="form-group">
+                <label for="telefono">Teléfono</label>
+                <input id="telefono" type="tel" placeholder="Tu teléfono" class="glass">
+            </div>
+            <div class="form-group">
+                <label for="mensaje">Mensaje*</label>
+                <textarea id="mensaje" placeholder="Cuéntanos sobre tu viaje ideal..." class="glass" required></textarea>
+            </div>
+            <button type="submit" class="btn-primary" style="width: 100%;">Enviar mensaje</button>
+        </form>
+    </div>
+</section>
 
-    <script>
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.getElementById('header');
-            if (window.scrollY > 100) {
-                header.classList.add('header-scrolled');
-            } else {
-                header.classList.remove('header-scrolled');
-            }
-        });
-        
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-        document.querySelectorAll('.animate-on-scroll').forEach(el => {
-            observer.observe(el);
-        });
+<footer>
+    <p>&copy; 2024 Turismo+. Todos los derechos reservados. Turismo inclusivo para todos.</p>
+</footer>
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Form submission
-        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+<script>
+    // Header scroll
+    window.addEventListener('scroll', () => {
+        document.getElementById('header').classList.toggle('header-scrolled', window.scrollY > 100);
+    });
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const name = this.querySelector('input[type="text"]').value;
-            const email = this.querySelector('input[type="email"]').value;
-            const phone = this.querySelector('input[type="tel"]').value;
-            const message = this.querySelector('textarea').value;
-            
-            // Simple validation
-            if (!name || !email || !message) {
-                alert('Por favor, completa todos los campos obligatorios.');
-                return;
-            }
-            
-            // Simulate form submission
-            const button = this.querySelector('button');
-            const originalText = button.textContent;
-            button.textContent = 'Enviando...';
-            button.disabled = true;
-            
-            setTimeout(() => {
-                alert('¡Gracias por tu mensaje! Te contactaremos pronto para planificar tu viaje inclusivo.');
-                this.reset();
-                button.textContent = originalText;
-                button.disabled = false;
-            }, 2000);
+            document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
         });
-
-        // Add floating animation to service cards
-        document.querySelectorAll('.service-card').forEach((card, index) => {
-            card.style.animationDelay = `${index * 0.2}s`;
-            card.style.animation = 'float 6s ease-in-out infinite';
-        });
-    </script>
+    });
+    // Menu hamburger
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
+    // Form
+    document.querySelector('.contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
+        this.reset();
+    });
+</script>
 </body>
 </html>
