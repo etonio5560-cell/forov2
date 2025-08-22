@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bridgr - Conectando Tunuyán</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: #272936;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(107, 115, 182, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #6B73B6;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #272936;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: #5F6DE0;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1C1F33 0%, #272936 50%, #555761 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+            color: white;
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .cta-button {
+            background: #5F6DE0;
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .cta-button:hover {
+            background: #6B73B6;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(95, 109, 224, 0.3);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 0;
+            background: #F8F9FA;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: #272936;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(107, 115, 182, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(107, 115, 182, 0.15);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, #5F6DE0, #6B73B6);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #272936;
+        }
+
+        .feature-card p {
+            color: #6B7280;
+            line-height: 1.6;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 6rem 0;
+            background: white;
+        }
+
+        .benefits-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .benefits-text h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #272936;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .benefit-icon {
+            width: 24px;
+            height: 24px;
+            background: #5F6DE0;
+            border-radius: 50%;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .benefits-visual {
+            position: relative;
+            height: 400px;
+            background: linear-gradient(135deg, #272936, #555761);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 6rem 0;
+            background: #F3F4F6;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(107, 115, 182, 0.1);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: #555761;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #5F6DE0, #6B73B6);
+            border-radius: 50%;
+            margin-right: 1rem;
+        }
+
+        .author-info h4 {
+            font-weight: 600;
+            color: #272936;
+        }
+
+        .author-info p {
+            color: #6B7280;
+            font-size: 0.9rem;
+        }
+
+        .process-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #5F6DE0, #6B73B6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin: 0 auto 1.5rem;
+        }
+
+        /* CTA Section */
+        .final-cta {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #272936, #555761);
+            text-align: center;
+            color: white;
+        }
+
+        .final-cta h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .final-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #1E3A8A;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1C1F33;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section a {
+            color: #D1D5DB;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #5F6DE0;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 1rem;
+            text-align: center;
+            color: #9CA3AF;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #1E3A8A;
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .benefits-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .final-cta h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="#" class="logo">Bridgr</a>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#empleo">Bolsa de Empleo</a></li>
+                <li><a href="#directorio">Directorio</a></li>
+                <li><a href="#entrevistas">Entrevistas Online</a></li>
+                <li><a href="#resultados">Resultados</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <svg class="hero-bg" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="1"/>
+                </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#grid)" />
+            <circle cx="200" cy="150" r="4" fill="white"/>
+            <circle cx="400" cy="250" r="4" fill="white"/>
+            <circle cx="600" cy="180" r="4" fill="white"/>
+            <circle cx="800" cy="300" r="4" fill="white"/>
+            <circle cx="1000" cy="200" r="4" fill="white"/>
+            <line x1="200" y1="150" x2="400" y2="250" stroke="white" stroke-width="2"/>
+            <line x1="400" y1="250" x2="600" y2="180" stroke="white" stroke-width="2"/>
+            <line x1="600" y1="180" x2="800" y2="300" stroke="white" stroke-width="2"/>
+            <line x1="800" y1="300" x2="1000" y2="200" stroke="white" stroke-width="2"/>
+        </svg>
+        <div class="hero-content">
+            <h1>Conectando talento con oportunidades</h1>
+            <p>Plataforma digital que optimiza la contratación mediante cuestionarios, currículums y entrevistas online en Tunuyán</p>
+            <a href="#registro" class="cta-button">Registrate Gratis</a>
+        </div>
+    </section>
+
+    <!-- Objectives Section -->
+    <section class="features" id="objetivos">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Optimizando la contratación digital</h2>
+            <div class="features-grid">
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" fill="white" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                    </div>
+                    <h3>Cuestionarios Inteligentes</h3>
+                    <p>Evaluaciones personalizadas que identifican las habilidades y competencias de cada candidato.</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" fill="white" viewBox="0 0 24 24">
+                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 2 2h16c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                        </svg>
+                    </div>
+                    <h3>Gestión de Currículums</h3>
+                    <p>Plataforma centralizada para almacenar, organizar y comparar perfiles profesionales.</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" fill="white" viewBox="0 0 24 24">
+                            <path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4zM14 13h-3v3H9v-3H6v-2h3V8h2v3h3v2z"/>
+                        </svg>
+                    </div>
+                    <h3>Entrevistas Online</h3>
+                    <p>Sistema de videollamadas integrado para realizar entrevistas remotas eficientes.</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" fill="white" viewBox="0 0 24 24">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                        </svg>
+                    </div>
+                    <h3>Emparejamiento Eficiente</h3>
+                    <p>Algoritmo que conecta automáticamente el talento más adecuado con las vacantes disponibles.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Profiles Section -->
+    <section class="benefits">
+        <div class="container">
+            <div class="benefits-content">
+                <div class="benefits-text animate-on-scroll">
+                    <h2>Perfiles de usuarios</h2>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"></div>
+                        <p><strong>Trabajadores:</strong> Profesionales con habilidades específicas, experiencia laboral y ubicación en Tunuyán</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"></div>
+                        <p><strong>Empresas:</strong> Organizaciones locales con necesidades de contratación por industria y tipo de puesto</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"></div>
+                        <p><strong>Estudiantes:</strong> Jóvenes en formación buscando prácticas profesionales y primeras oportunidades</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"></div>
+                        <p><strong>Freelancers:</strong> Profesionales independientes ofreciendo servicios especializados</p>
+                    </div>
+                </div>
+                <div class="benefits-visual animate-on-scroll">
+                    <svg width="300" height="200" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="50" y="30" width="60" height="40" rx="10" fill="white" opacity="0.8"/>
+                        <rect x="190" y="30" width="60" height="40" rx="10" fill="white" opacity="0.8"/>
+                        <rect x="50" y="130" width="60" height="40" rx="10" fill="white" opacity="0.8"/>
+                        <rect x="190" y="130" width="60" height="40" rx="10" fill="white" opacity="0.8"/>
+                        <circle cx="150" cy="100" r="25" fill="white" opacity="0.9"/>
+                        <line x1="110" y1="50" x2="125" y2="85" stroke="white" stroke-width="3" opacity="0.6"/>
+                        <line x1="190" y1="50" x2="175" y2="85" stroke="white" stroke-width="3" opacity="0.6"/>
+                        <line x1="110" y1="150" x2="125" y2="115" stroke="white" stroke-width="3" opacity="0.6"/>
+                        <line x1="190" y1="150" x2="175" y2="115" stroke="white" stroke-width="3" opacity="0.6"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Proceso de conexión</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card animate-on-scroll">
+                    <div class="process-number">1</div>
+                    <h3>Registro</h3>
+                    <p class="testimonial-text">Crea tu perfil como trabajador o empresa, completando información básica y preferencias.</p>
+                </div>
+                <div class="testimonial-card animate-on-scroll">
+                    <div class="process-number">2</div>
+                    <h3>Cuestionarios</h3>
+                    <p class="testimonial-text">Completa evaluaciones personalizadas que identifican habilidades y compatibilidad laboral.</p>
+                </div>
+                <div class="testimonial-card animate-on-scroll">
+                    <div class="process-number">3</div>
+                    <h3>Entrevistas Online</h3>
+                    <p class="testimonial-text">Participa en videollamadas programadas para conocer mejor a candidatos o empleadores.</p>
+                </div>
+                <div class="testimonial-card animate-on-scroll">
+                    <div class="process-number">4</div>
+                    <h3>Emparejamiento</h3>
+                    <p class="testimonial-text">Nuestro algoritmo conecta automáticamente el talento más adecuado con las oportunidades.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta" id="registro">
+        <div class="container">
+            <h2 class="animate-on-scroll">¿Listo para conectar?</h2>
+            <p class="animate-on-scroll">Únete a la comunidad profesional de Tunuyán y descubre nuevas oportunidades</p>
+            <div class="cta-buttons animate-on-scroll">
+                <a href="#" class="cta-button">Registrarme como Profesional</a>
+                <a href="#" class="btn-secondary">Registrar mi Empresa</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contacto">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Bridgr</h3>
+                    <p>Conectando profesionales y oportunidades en Tunuyán desde 2024.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <a href="#empleo">Bolsa de Empleo</a>
+                    <a href="#directorio">Directorio</a>
+                    <a href="#eventos">Eventos</a>
+                    <a href="#ayuda">Centro de Ayuda</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <a href="#terminos">Términos y Condiciones</a>
+                    <a href="#privacidad">Política de Privacidad</a>
+                    <a href="#cookies">Política de Cookies</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <p>📧 hola@bridgr.com.ar</p>
+                    <p>📱 +54 261 123-4567</p>
+                    <p>📍 Tunuyán, Mendoza</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Bridgr. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // Close mobile menu if open
+                document.getElementById('navMenu').classList.remove('active');
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with animate-on-scroll class
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // CTA button interactions
+        document.querySelectorAll('.cta-button, .btn-secondary').forEach(button => {
+            button.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#' || this.getAttribute('href') === '#registro') {
+                    e.preventDefault();
+                    alert('¡Gracias por tu interés! La funcionalidad de registro estará disponible próximamente.');
+                }
+            });
+        });
+
+        // Feature cards hover effect enhancement
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-15px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97336a2ec2daf1ca',t:'MTc1NTg3NjY2MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
