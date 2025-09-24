@@ -3,740 +3,290 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bridgr - Conectando Tunuyán</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>EcoMarket - Productos Ecológicos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'eco-green': '#4ade80',
+                        'eco-dark-green': '#16a34a',
+                        'eco-light-green': '#dcfce7',
+                        'eco-beige': '#f5f5dc',
+                        'eco-brown': '#a3a3a3'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Montserrat', sans-serif;
-            line-height: 1.6;
-            color: #272936;
-            overflow-x: hidden;
-        }
-
-        /* Header */
-        .header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 20px rgba(107, 115, 182, 0.1);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
-
-        .logo {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #6B73B6;
-            text-decoration: none;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-menu a {
-            text-decoration: none;
-            color: #272936;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        .nav-menu a:hover {
-            color: #5F6DE0;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #1C1F33 0%, #272936 50%, #555761 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        
         .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0.1;
+            background: linear-gradient(rgba(34, 197, 94, 0.3), rgba(34, 197, 94, 0.3)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%2322c55e" width="1200" height="600" opacity="0.1"/><circle cx="200" cy="150" r="80" fill="%2316a34a" opacity="0.2"/><circle cx="800" cy="300" r="120" fill="%234ade80" opacity="0.15"/><circle cx="1000" cy="100" r="60" fill="%2322c55e" opacity="0.2"/></svg>');
+            background-size: cover;
+            background-position: center;
         }
-
-        .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            text-align: center;
-            color: white;
-            z-index: 2;
-            position: relative;
+        
+        .scroll-smooth {
+            scroll-behavior: smooth;
         }
-
-        .hero h1 {
-            font-size: 4rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease;
-        }
-
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            animation: fadeInUp 1s ease 0.2s both;
-        }
-
-        .cta-button {
-            background: #5F6DE0;
-            color: white;
-            padding: 1rem 2.5rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            cursor: pointer;
+        
+        .card-hover {
             transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            animation: fadeInUp 1s ease 0.4s both;
         }
-
-        .cta-button:hover {
-            background: #6B73B6;
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-eco {
+            transition: all 0.3s ease;
+        }
+        
+        .btn-eco:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(95, 109, 224, 0.3);
+            box-shadow: 0 10px 20px rgba(22, 163, 74, 0.3);
         }
-
-        /* Features Section */
-        .features {
-            padding: 6rem 0;
-            background: #F8F9FA;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 3rem;
-            color: #272936;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(107, 115, 182, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(107, 115, 182, 0.15);
-        }
-
-        .feature-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 1.5rem;
-            background: linear-gradient(135deg, #5F6DE0, #6B73B6);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .feature-card h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: #272936;
-        }
-
-        .feature-card p {
-            color: #6B7280;
-            line-height: 1.6;
-        }
-
-        /* Benefits Section */
-        .benefits {
-            padding: 6rem 0;
-            background: white;
-        }
-
-        .benefits-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .benefits-text h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            color: #272936;
-        }
-
-        .benefit-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .benefit-icon {
-            width: 24px;
-            height: 24px;
-            background: #5F6DE0;
-            border-radius: 50%;
-            margin-right: 1rem;
-            flex-shrink: 0;
-        }
-
-        .benefits-visual {
-            position: relative;
-            height: 400px;
-            background: linear-gradient(135deg, #272936, #555761);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Testimonials */
-        .testimonials {
-            padding: 6rem 0;
-            background: #F3F4F6;
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .testimonial-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(107, 115, 182, 0.1);
-        }
-
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 1.5rem;
-            color: #555761;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-        }
-
-        .author-avatar {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #5F6DE0, #6B73B6);
-            border-radius: 50%;
-            margin-right: 1rem;
-        }
-
-        .author-info h4 {
-            font-weight: 600;
-            color: #272936;
-        }
-
-        .author-info p {
-            color: #6B7280;
-            font-size: 0.9rem;
-        }
-
-        .process-number {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #5F6DE0, #6B73B6);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: white;
-            margin: 0 auto 1.5rem;
-        }
-
-        /* CTA Section */
-        .final-cta {
-            padding: 6rem 0;
-            background: linear-gradient(135deg, #272936, #555761);
-            text-align: center;
-            color: white;
-        }
-
-        .final-cta h2 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .final-cta p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .btn-secondary:hover {
-            background: white;
-            color: #1E3A8A;
-        }
-
-        /* Footer */
-        .footer {
-            background: #1C1F33;
-            color: white;
-            padding: 3rem 0 1rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h3 {
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .footer-section a {
-            color: #D1D5DB;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 0.5rem;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section a:hover {
-            color: #5F6DE0;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #374151;
-            padding-top: 1rem;
-            text-align: center;
-            color: #9CA3AF;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate-on-scroll {
+        
+        .fade-in {
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.6s ease;
         }
-
-        .animate-on-scroll.visible {
+        
+        .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
-
-        /* Mobile Menu */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: #1E3A8A;
-            cursor: pointer;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .nav-menu {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: white;
-                flex-direction: column;
-                padding: 1rem;
-                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            }
-
-            .nav-menu.active {
-                display: flex;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1.2rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .benefits-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .final-cta h2 {
-                font-size: 2rem;
-            }
-        }
     </style>
 </head>
-<body>
+<body class="font-sans text-gray-800 scroll-smooth">
     <!-- Header -->
-    <header class="header">
-        <nav class="nav-container">
-            <a href="#" class="logo">Bridgr</a>
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#empleo">Bolsa de Empleo</a></li>
-                <li><a href="#directorio">Directorio</a></li>
-                <li><a href="#entrevistas">Entrevistas Online</a></li>
-                <li><a href="#resultados">Resultados</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
+    <header class="fixed top-0 w-full bg-white shadow-md z-50 transition-all duration-300">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <svg class="w-8 h-8 text-eco-green" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z"/>
+                        <path d="M12 16C15.31 16 18 13.31 18 10C18 6.69 15.31 4 12 4S6 6.69 6 10C6 13.31 8.69 16 12 16Z" opacity="0.6"/>
+                    </svg>
+                    <span class="text-2xl font-bold text-eco-dark-green">EcoMarket</span>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="#inicio" class="text-gray-700 hover:text-eco-green transition-colors">Inicio</a>
+                    <a href="#productos" class="text-gray-700 hover:text-eco-green transition-colors">Productos</a>
+                    <a href="#beneficios" class="text-gray-700 hover:text-eco-green transition-colors">Beneficios</a>
+                    <a href="#nosotros" class="text-gray-700 hover:text-eco-green transition-colors">Nosotros</a>
+                    <a href="#contacto" class="text-gray-700 hover:text-eco-green transition-colors">Contacto</a>
+                </div>
+                
+                <button class="md:hidden text-eco-green" onclick="toggleMenu()">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                <a href="#inicio" class="block text-gray-700 hover:text-eco-green transition-colors py-2">Inicio</a>
+                <a href="#productos" class="block text-gray-700 hover:text-eco-green transition-colors py-2">Productos</a>
+                <a href="#beneficios" class="block text-gray-700 hover:text-eco-green transition-colors py-2">Beneficios</a>
+                <a href="#nosotros" class="block text-gray-700 hover:text-eco-green transition-colors py-2">Nosotros</a>
+                <a href="#contacto" class="block text-gray-700 hover:text-eco-green transition-colors py-2">Contacto</a>
+            </div>
         </nav>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero" id="inicio">
-        <svg class="hero-bg" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="1"/>
-                </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#grid)" />
-            <circle cx="200" cy="150" r="4" fill="white"/>
-            <circle cx="400" cy="250" r="4" fill="white"/>
-            <circle cx="600" cy="180" r="4" fill="white"/>
-            <circle cx="800" cy="300" r="4" fill="white"/>
-            <circle cx="1000" cy="200" r="4" fill="white"/>
-            <line x1="200" y1="150" x2="400" y2="250" stroke="white" stroke-width="2"/>
-            <line x1="400" y1="250" x2="600" y2="180" stroke="white" stroke-width="2"/>
-            <line x1="600" y1="180" x2="800" y2="300" stroke="white" stroke-width="2"/>
-            <line x1="800" y1="300" x2="1000" y2="200" stroke="white" stroke-width="2"/>
-        </svg>
-        <div class="hero-content">
-            <h1>Conectando talento con oportunidades</h1>
-            <p>Plataforma digital que optimiza la contratación mediante cuestionarios, currículums y entrevistas online en Tunuyán</p>
-            <a href="#registro" class="cta-button">Registrate Gratis</a>
+    <section id="inicio" class="hero-bg min-h-screen flex items-center justify-center text-center text-white pt-20">
+        <div class="container mx-auto px-6">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 fade-in">EcoMarket</h1>
+            <p class="text-xl md:text-2xl mb-8 font-light fade-in">Cuidamos el planeta, cuidando tu vida</p>
+            <button onclick="scrollToSection('productos')" class="bg-eco-dark-green text-white px-8 py-4 rounded-full text-lg font-semibold btn-eco fade-in">
+                Explorar productos
+            </button>
         </div>
     </section>
 
-    <!-- Objectives Section -->
-    <section class="features" id="objetivos">
-        <div class="container">
-            <h2 class="section-title animate-on-scroll">Optimizando la contratación digital</h2>
-            <div class="features-grid">
-                <div class="feature-card animate-on-scroll">
-                    <div class="feature-icon">
-                        <svg width="40" height="40" fill="white" viewBox="0 0 24 24">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+    <!-- Productos Section -->
+    <section id="productos" class="py-20 bg-eco-light-green">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 text-eco-dark-green fade-in">Nuestros Productos</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white rounded-2xl p-6 shadow-lg card-hover fade-in">
+                    <div class="w-full h-48 bg-eco-beige rounded-xl mb-4 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-eco-green" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C13.1 2 14 2.9 14 4V8C14 9.1 13.1 10 12 10S10 9.1 10 8V4C10 2.9 10.9 2 12 2M21 11H20L18.5 9.5C18.1 9.1 17.6 9.1 17.2 9.5L15.5 11.2C15.1 11.6 15.1 12.1 15.5 12.5L17 14H21C21.6 14 22 13.6 22 13V12C22 11.4 21.6 11 21 11M3 11C2.4 11 2 11.4 2 12V13C2 13.6 2.4 14 3 14H7L8.5 12.5C8.9 12.1 8.9 11.6 8.5 11.2L6.8 9.5C6.4 9.1 5.9 9.1 5.5 9.5L4 11H3M12 15C10.3 15 8.7 15.3 7.2 15.9C5.8 16.5 5 17.9 5 19.4V22H19V19.4C19 17.9 18.2 16.5 16.8 15.9C15.3 15.3 13.7 15 12 15Z"/>
                         </svg>
                     </div>
-                    <h3>Cuestionarios Inteligentes</h3>
-                    <p>Evaluaciones personalizadas que identifican las habilidades y competencias de cada candidato.</p>
+                    <h3 class="text-xl font-semibold mb-2 text-eco-dark-green">Shampoo Sólido</h3>
+                    <p class="text-gray-600 mb-4 font-light">Libre de químicos dañinos, duradero y con ingredientes naturales para todo tipo de cabello.</p>
+                    <button class="text-eco-green font-semibold hover:text-eco-dark-green transition-colors">Ver más →</button>
                 </div>
-                <div class="feature-card animate-on-scroll">
-                    <div class="feature-icon">
-                        <svg width="40" height="40" fill="white" viewBox="0 0 24 24">
-                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 2 2h16c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                
+                <div class="bg-white rounded-2xl p-6 shadow-lg card-hover fade-in">
+                    <div class="w-full h-48 bg-eco-beige rounded-xl mb-4 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-eco-green" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M4.5 12.5C4.5 13.88 5.62 15 7 15S9.5 13.88 9.5 12.5 8.38 10 7 10 4.5 11.12 4.5 12.5M7 8.5C9.21 8.5 11 10.29 11 12.5S9.21 16.5 7 16.5 3 14.71 3 12.5 4.79 8.5 7 8.5M17 8.5C19.21 8.5 21 10.29 21 12.5S19.21 16.5 17 16.5 13 14.71 13 12.5 14.79 8.5 17 8.5M17 10C15.62 10 14.5 11.12 14.5 12.5S15.62 15 17 15 19.5 13.88 19.5 12.5 18.38 10 17 10M12 1L10.5 6H13.5L12 1M12 18L13.5 23H10.5L12 18Z"/>
                         </svg>
                     </div>
-                    <h3>Gestión de Currículums</h3>
-                    <p>Plataforma centralizada para almacenar, organizar y comparar perfiles profesionales.</p>
+                    <h3 class="text-xl font-semibold mb-2 text-eco-dark-green">Cepillo de Bambú</h3>
+                    <p class="text-gray-600 mb-4 font-light">Cepillo dental biodegradable con cerdas suaves, perfecto para una higiene bucal sostenible.</p>
+                    <button class="text-eco-green font-semibold hover:text-eco-dark-green transition-colors">Ver más →</button>
                 </div>
-                <div class="feature-card animate-on-scroll">
-                    <div class="feature-icon">
-                        <svg width="40" height="40" fill="white" viewBox="0 0 24 24">
-                            <path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4zM14 13h-3v3H9v-3H6v-2h3V8h2v3h3v2z"/>
+                
+                <div class="bg-white rounded-2xl p-6 shadow-lg card-hover fade-in">
+                    <div class="w-full h-48 bg-eco-beige rounded-xl mb-4 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-eco-green" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C13.1 2 14 2.9 14 4V8H10V4C10 2.9 10.9 2 12 2M16 8V4C16 1.8 14.2 0 12 0S8 1.8 8 4V8C6.9 8 6 8.9 6 10V20C6 21.1 6.9 22 8 22H16C17.1 22 18 21.1 18 20V10C18 8.9 17.1 8 16 8M12 17C10.9 17 10 16.1 10 15S10.9 13 12 13 14 13.9 14 15 13.1 17 12 17Z"/>
                         </svg>
                     </div>
-                    <h3>Entrevistas Online</h3>
-                    <p>Sistema de videollamadas integrado para realizar entrevistas remotas eficientes.</p>
+                    <h3 class="text-xl font-semibold mb-2 text-eco-dark-green">Bombilla de Acero</h3>
+                    <p class="text-gray-600 mb-4 font-light">Bombilla reutilizable de acero inoxidable, ideal para mate y bebidas calientes o frías.</p>
+                    <button class="text-eco-green font-semibold hover:text-eco-dark-green transition-colors">Ver más →</button>
                 </div>
-                <div class="feature-card animate-on-scroll">
-                    <div class="feature-icon">
-                        <svg width="40" height="40" fill="white" viewBox="0 0 24 24">
-                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                
+                <div class="bg-white rounded-2xl p-6 shadow-lg card-hover fade-in">
+                    <div class="w-full h-48 bg-eco-beige rounded-xl mb-4 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-eco-green" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 7H16V6A4 4 0 0 0 8 6V7H5A1 1 0 0 0 4 8V19A3 3 0 0 0 7 22H17A3 3 0 0 0 20 19V8A1 1 0 0 0 19 7M10 6A2 2 0 0 1 14 6V7H10V6M18 19A1 1 0 0 1 17 20H7A1 1 0 0 1 6 19V9H8V10A1 1 0 0 0 10 10A1 1 0 0 0 10 10V9H14V10A1 1 0 0 0 16 10A1 1 0 0 0 14 10V9H18V19Z"/>
                         </svg>
                     </div>
-                    <h3>Emparejamiento Eficiente</h3>
-                    <p>Algoritmo que conecta automáticamente el talento más adecuado con las vacantes disponibles.</p>
+                    <h3 class="text-xl font-semibold mb-2 text-eco-dark-green">Bolsas Reutilizables</h3>
+                    <p class="text-gray-600 mb-4 font-light">Bolsas de tela resistentes y lavables, perfectas para tus compras diarias sin plástico.</p>
+                    <button class="text-eco-green font-semibold hover:text-eco-dark-green transition-colors">Ver más →</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- User Profiles Section -->
-    <section class="benefits">
-        <div class="container">
-            <div class="benefits-content">
-                <div class="benefits-text animate-on-scroll">
-                    <h2>Perfiles de usuarios</h2>
-                    <div class="benefit-item">
-                        <div class="benefit-icon"></div>
-                        <p><strong>Trabajadores:</strong> Profesionales con habilidades específicas, experiencia laboral y ubicación en Tunuyán</p>
+    <!-- Beneficios Section -->
+    <section id="beneficios" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 text-eco-dark-green fade-in">¿Por qué elegir EcoMarket?</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center fade-in">
+                    <div class="w-16 h-16 bg-eco-light-green rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-eco-green" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z"/>
+                        </svg>
                     </div>
-                    <div class="benefit-item">
-                        <div class="benefit-icon"></div>
-                        <p><strong>Empresas:</strong> Organizaciones locales con necesidades de contratación por industria y tipo de puesto</p>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="benefit-icon"></div>
-                        <p><strong>Estudiantes:</strong> Jóvenes en formación buscando prácticas profesionales y primeras oportunidades</p>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="benefit-icon"></div>
-                        <p><strong>Freelancers:</strong> Profesionales independientes ofreciendo servicios especializados</p>
-                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-eco-dark-green">Reducción de Plástico</h3>
+                    <p class="text-gray-600 font-light">Nuestros productos eliminan la necesidad de envases plásticos, reduciendo significativamente tu huella ambiental.</p>
                 </div>
-                <div class="benefits-visual animate-on-scroll">
-                    <svg width="300" height="200" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="50" y="30" width="60" height="40" rx="10" fill="white" opacity="0.8"/>
-                        <rect x="190" y="30" width="60" height="40" rx="10" fill="white" opacity="0.8"/>
-                        <rect x="50" y="130" width="60" height="40" rx="10" fill="white" opacity="0.8"/>
-                        <rect x="190" y="130" width="60" height="40" rx="10" fill="white" opacity="0.8"/>
-                        <circle cx="150" cy="100" r="25" fill="white" opacity="0.9"/>
-                        <line x1="110" y1="50" x2="125" y2="85" stroke="white" stroke-width="3" opacity="0.6"/>
-                        <line x1="190" y1="50" x2="175" y2="85" stroke="white" stroke-width="3" opacity="0.6"/>
-                        <line x1="110" y1="150" x2="125" y2="115" stroke="white" stroke-width="3" opacity="0.6"/>
-                        <line x1="190" y1="150" x2="175" y2="115" stroke="white" stroke-width="3" opacity="0.6"/>
+                
+                <div class="text-center fade-in">
+                    <div class="w-16 h-16 bg-eco-light-green rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-eco-green" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22L6.66 19.7C7.14 19.87 7.64 20 8 20C19 20 22 3 22 3C21 5 14 5.25 9 6.25C4 7.25 2 11.5 2 13.5C2 15.5 3.75 17.25 3.75 17.25C7.5 15 8.5 14.5 11.5 14.5C14.5 14.5 16.5 16.5 16.5 16.5C18.5 15.5 18.5 13.5 18.5 13.5C18.5 11.5 17 8 17 8Z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-eco-dark-green">100% Biodegradable</h3>
+                    <p class="text-gray-600 font-light">Todos nuestros productos se descomponen naturalmente, regresando nutrientes a la tierra sin contaminar.</p>
+                </div>
+                
+                <div class="text-center fade-in">
+                    <div class="w-16 h-16 bg-eco-light-green rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-eco-green" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12S6.48 22 12 22 22 17.52 22 12 17.52 2 12 2M12 20C7.59 20 4 16.41 4 12S7.59 4 12 4 20 7.59 20 12 16.41 20 12 20M15.88 8.29L10 14.17L8.12 12.29C7.73 11.9 7.1 11.9 6.71 12.29S6.32 13.27 6.71 13.66L9.3 16.25C9.69 16.64 10.32 16.64 10.71 16.25L17.3 9.66C17.69 9.27 17.69 8.64 17.3 8.25S16.27 7.86 15.88 8.29Z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-eco-dark-green">Reutilización</h3>
+                    <p class="text-gray-600 font-light">Productos diseñados para durar más tiempo, reduciendo la frecuencia de compra y el desperdicio.</p>
+                </div>
+                
+                <div class="text-center fade-in">
+                    <div class="w-16 h-16 bg-eco-light-green rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-eco-green" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12S6.48 22 12 22 22 17.52 22 12 17.52 2 12 2M12 20C7.59 20 4 16.41 4 12S7.59 4 12 4 20 7.59 20 12 16.41 20 12 20M16.59 7.58L10 14.17L7.41 11.59C7.02 11.2 6.39 11.2 6 11.59S5.61 12.61 6 13L9.29 16.29C9.68 16.68 10.31 16.68 10.7 16.29L17.7 9.29C18.09 8.9 18.09 8.27 17.7 7.88S17.27 7.49 16.88 7.88L16.59 7.58Z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-eco-dark-green">Impacto Positivo</h3>
+                    <p class="text-gray-600 font-light">Cada compra contribuye a un futuro más sostenible y apoya iniciativas de conservación ambiental.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nosotros Section -->
+    <section id="nosotros" class="py-20 bg-eco-beige">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl font-bold mb-8 text-eco-dark-green fade-in">Nuestra Historia</h2>
+                
+                <div class="w-64 h-64 bg-eco-light-green rounded-full mx-auto mb-8 flex items-center justify-center fade-in">
+                    <svg class="w-32 h-32 text-eco-green" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M16 4C18.2 4 20 5.8 20 8C20 10.2 18.2 12 16 12C13.8 12 12 10.2 12 8C12 5.8 13.8 4 16 4M16 14C18.67 14 24 15.33 24 18V20H8V18C8 15.33 13.33 14 16 14M8 4C10.2 4 12 5.8 12 8C12 10.2 10.2 12 8 12C5.8 12 4 10.2 4 8C4 5.8 5.8 4 8 4M8 14C10.67 14 16 15.33 16 18V20H0V18C0 15.33 5.33 14 8 14Z"/>
                     </svg>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Process Section -->
-    <section class="testimonials">
-        <div class="container">
-            <h2 class="section-title animate-on-scroll">Proceso de conexión</h2>
-            <div class="testimonials-grid">
-                <div class="testimonial-card animate-on-scroll">
-                    <div class="process-number">1</div>
-                    <h3>Registro</h3>
-                    <p class="testimonial-text">Crea tu perfil como trabajador o empresa, completando información básica y preferencias.</p>
-                </div>
-                <div class="testimonial-card animate-on-scroll">
-                    <div class="process-number">2</div>
-                    <h3>Cuestionarios</h3>
-                    <p class="testimonial-text">Completa evaluaciones personalizadas que identifican habilidades y compatibilidad laboral.</p>
-                </div>
-                <div class="testimonial-card animate-on-scroll">
-                    <div class="process-number">3</div>
-                    <h3>Entrevistas Online</h3>
-                    <p class="testimonial-text">Participa en videollamadas programadas para conocer mejor a candidatos o empleadores.</p>
-                </div>
-                <div class="testimonial-card animate-on-scroll">
-                    <div class="process-number">4</div>
-                    <h3>Emparejamiento</h3>
-                    <p class="testimonial-text">Nuestro algoritmo conecta automáticamente el talento más adecuado con las oportunidades.</p>
+                
+                <p class="text-lg text-gray-700 leading-relaxed mb-8 font-light fade-in">
+                    EcoMarket nació de un proyecto escolar desarrollado por un grupo de jóvenes emprendedores comprometidos con el medio ambiente. 
+                    Nuestra misión es fomentar el consumo responsable y crear conciencia ambiental a través de productos ecológicos de alta calidad. 
+                    Creemos que pequeños cambios en nuestros hábitos diarios pueden generar un gran impacto positivo en nuestro planeta.
+                </p>
+                
+                <div class="grid md:grid-cols-3 gap-8 mt-12">
+                    <div class="text-center fade-in">
+                        <div class="text-3xl font-bold text-eco-green mb-2">500+</div>
+                        <p class="text-gray-600">Productos vendidos</p>
+                    </div>
+                    <div class="text-center fade-in">
+                        <div class="text-3xl font-bold text-eco-green mb-2">200kg</div>
+                        <p class="text-gray-600">Plástico evitado</p>
+                    </div>
+                    <div class="text-center fade-in">
+                        <div class="text-3xl font-bold text-eco-green mb-2">100+</div>
+                        <p class="text-gray-600">Familias eco-conscientes</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Final CTA -->
-    <section class="final-cta" id="registro">
-        <div class="container">
-            <h2 class="animate-on-scroll">¿Listo para conectar?</h2>
-            <p class="animate-on-scroll">Únete a la comunidad profesional de Tunuyán y descubre nuevas oportunidades</p>
-            <div class="cta-buttons animate-on-scroll">
-                <a href="#" class="cta-button">Registrarme como Profesional</a>
-                <a href="#" class="btn-secondary">Registrar mi Empresa</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer" id="contacto">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Bridgr</h3>
-                    <p>Conectando profesionales y oportunidades en Tunuyán desde 2024.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Enlaces Rápidos</h3>
-                    <a href="#empleo">Bolsa de Empleo</a>
-                    <a href="#directorio">Directorio</a>
-                    <a href="#eventos">Eventos</a>
-                    <a href="#ayuda">Centro de Ayuda</a>
-                </div>
-                <div class="footer-section">
-                    <h3>Legal</h3>
-                    <a href="#terminos">Términos y Condiciones</a>
-                    <a href="#privacidad">Política de Privacidad</a>
-                    <a href="#cookies">Política de Cookies</a>
-                </div>
-                <div class="footer-section">
-                    <h3>Contacto</h3>
-                    <p>📧 hola@bridgr.com.ar</p>
-                    <p>📱 +54 261 123-4567</p>
-                    <p>📍 Tunuyán, Mendoza</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Bridgr. Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Mobile menu toggle
-        function toggleMobileMenu() {
-            const navMenu = document.getElementById('navMenu');
-            navMenu.classList.toggle('active');
-        }
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-                // Close mobile menu if open
-                document.getElementById('navMenu').classList.remove('active');
-            });
-        });
-
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        // Observe all elements with animate-on-scroll class
-        document.querySelectorAll('.animate-on-scroll').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Header background on scroll
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('.header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-            }
-        });
-
-        // CTA button interactions
-        document.querySelectorAll('.cta-button, .btn-secondary').forEach(button => {
-            button.addEventListener('click', function(e) {
-                if (this.getAttribute('href') === '#' || this.getAttribute('href') === '#registro') {
-                    e.preventDefault();
-                    alert('¡Gracias por tu interés! La funcionalidad de registro estará disponible próximamente.');
-                }
-            });
-        });
-
-        // Feature cards hover effect enhancement
-        document.querySelectorAll('.feature-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-15px) scale(1.02)';
-            });
+    <!-- Contacto Section -->
+    <section id="contacto" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 text-eco-dark-green fade-in">Contáctanos</h2>
             
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-    </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97336a2ec2daf1ca',t:'MTc1NTg3NjY2MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
-</html>
+            <div class="max-w-2xl mx-auto">
+                <form class="space-y-6 fade-in" onsubmit="handleSubmit(event)">
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">Nombre</label>
+                        <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-eco-green transition-colors" required>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">Email</label>
+                        <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-eco-green transition-colors" required>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">Mensaje</label>
+                        <textarea rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-eco-green transition-colors" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-eco-green text-white py-3 rounded-lg font-semibold btn-eco">
+                        Enviar mensaje
+                    </button>
+                </form>
+                
+                <div class="flex justify-center space-x-6 mt-12 fade-in">
+                    <a href="#" class="text-eco-green hover:text-eco-dark-green transition-colors">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.024-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.347-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001.012.001z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-eco-green hover:text-eco-dark-green transition-colors">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M24 4.557c-.883.392-1.832.656-2.828.7
