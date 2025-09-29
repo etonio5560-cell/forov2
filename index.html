@@ -1,292 +1,212 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoMarket - Productos Ecológicos</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'eco-green': '#4ade80',
-                        'eco-dark-green': '#16a34a',
-                        'eco-light-green': '#dcfce7',
-                        'eco-beige': '#f5f5dc',
-                        'eco-brown': '#a3a3a3'
-                    },
-                    fontFamily: {
-                        'sans': ['Inter', 'system-ui', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-        
-        .hero-bg {
-            background: linear-gradient(rgba(34, 197, 94, 0.3), rgba(34, 197, 94, 0.3)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%2322c55e" width="1200" height="600" opacity="0.1"/><circle cx="200" cy="150" r="80" fill="%2316a34a" opacity="0.2"/><circle cx="800" cy="300" r="120" fill="%234ade80" opacity="0.15"/><circle cx="1000" cy="100" r="60" fill="%2322c55e" opacity="0.2"/></svg>');
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .scroll-smooth {
-            scroll-behavior: smooth;
-        }
-        
-        .card-hover {
-            transition: all 0.3s ease;
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-        
-        .btn-eco {
-            transition: all 0.3s ease;
-        }
-        
-        .btn-eco:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(22, 163, 74, 0.3);
-        }
-        
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoMarket - Productos ecológicos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --verde-bosque: #2C6E49;
+      --verde-menta: #D9E8D9;
+      --gris-carbon: #333333;
+      --blanco: #FFFFFF;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--blanco);
+      color: var(--gris-carbon);
+    }
+
+    header {
+      background-color: var(--verde-bosque);
+      color: var(--blanco);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+    }
+
+    nav a {
+      color: var(--blanco);
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .hero {
+      background: linear-gradient(to right, var(--verde-menta), var(--blanco));
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--verde-bosque);
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      margin: 1rem 0;
+    }
+
+    .hero button {
+      background-color: var(--verde-bosque);
+      color: var(--blanco);
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    section {
+      padding: 2rem;
+    }
+
+    .beneficios, .productos, .impacto, .testimonios {
+      background-color: var(--verde-menta);
+      margin: 2rem 0;
+      border-radius: 10px;
+      padding: 2rem;
+    }
+
+    .beneficios h3, .productos h3, .impacto h3, .testimonios h3 {
+      font-family: 'Playfair Display', serif;
+      color: var(--verde-bosque);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .tarjeta {
+      background-color: var(--blanco);
+      border: 1px solid var(--verde-bosque);
+      border-radius: 8px;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+
+    .contacto {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .formulario, .info-contacto {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin: 0.5rem 0;
+      border: 1px solid var(--gris-carbon);
+      border-radius: 5px;
+    }
+
+    footer {
+      background-color: var(--verde-bosque);
+      color: var(--blanco);
+      text-align: center;
+      padding: 1rem;
+    }
+  </style>
 </head>
-<body class="font-sans text-gray-800 scroll-smooth">
-    <!-- Header -->
-    <header class="fixed top-0 w-full bg-white shadow-md z-50 transition-all duration-300">
-        <nav class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-2">
-                    <svg class="w-8 h-8 text-eco-green" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z"/>
-                        <path d="M12 16C15.31 16 18 13.31 18 10C18 6.69 15.31 4 12 4S6 6.69 6 10C6 13.31 8.69 16 12 16Z" opacity="0.6"/>
-                    </svg>
-                    <span class="text-2xl font-bold text-eco-dark-green">EcoMarket</span>
-                </div>
-                
-                <div class="hidden md:flex space-x-8">
-                    <a href="#inicio" class="text-gray-700 hover:text-eco-green transition-colors">Inicio</a>
-                    <a href="#productos" class="text-gray-700 hover:text-eco-green transition-colors">Productos</a>
-                    <a href="#beneficios" class="text-gray-700 hover:text-eco-green transition-colors">Beneficios</a>
-                    <a href="#nosotros" class="text-gray-700 hover:text-eco-green transition-colors">Nosotros</a>
-                    <a href="#contacto" class="text-gray-700 hover:text-eco-green transition-colors">Contacto</a>
-                </div>
-                
-                <button class="md:hidden text-eco-green" onclick="toggleMenu()">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
-            
-            <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
-                <a href="#inicio" class="block text-gray-700 hover:text-eco-green transition-colors py-2">Inicio</a>
-                <a href="#productos" class="block text-gray-700 hover:text-eco-green transition-colors py-2">Productos</a>
-                <a href="#beneficios" class="block text-gray-700 hover:text-eco-green transition-colors py-2">Beneficios</a>
-                <a href="#nosotros" class="block text-gray-700 hover:text-eco-green transition-colors py-2">Nosotros</a>
-                <a href="#contacto" class="block text-gray-700 hover:text-eco-green transition-colors py-2">Contacto</a>
-            </div>
-        </nav>
-    </header>
+<body>
 
-    <!-- Hero Section -->
-    <section id="inicio" class="hero-bg min-h-screen flex items-center justify-center text-center text-white pt-20">
-        <div class="container mx-auto px-6">
-            <h1 class="text-5xl md:text-7xl font-bold mb-6 fade-in">EcoMarket</h1>
-            <p class="text-xl md:text-2xl mb-8 font-light fade-in">Cuidamos el planeta, cuidando tu vida</p>
-            <button onclick="scrollToSection('productos')" class="bg-eco-dark-green text-white px-8 py-4 rounded-full text-lg font-semibold btn-eco fade-in">
-                Explorar productos
-            </button>
-        </div>
-    </section>
+  <header>
+    <h1>EcoMarket</h1>
+    <nav>
+      <a href="#productos">Productos</a>
+      <a href="#beneficios">Beneficios</a>
+      <a href="#impacto">Impacto</a>
+      <a href="#testimonios">Testimonios</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
 
-    <!-- Productos Section -->
-    <section id="productos" class="py-20 bg-eco-light-green">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-16 text-eco-dark-green fade-in">Nuestros Productos</h2>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="bg-white rounded-2xl p-6 shadow-lg card-hover fade-in">
-                    <div class="w-full h-48 bg-eco-beige rounded-xl mb-4 flex items-center justify-center">
-                        <svg class="w-16 h-16 text-eco-green" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2C13.1 2 14 2.9 14 4V8C14 9.1 13.1 10 12 10S10 9.1 10 8V4C10 2.9 10.9 2 12 2M21 11H20L18.5 9.5C18.1 9.1 17.6 9.1 17.2 9.5L15.5 11.2C15.1 11.6 15.1 12.1 15.5 12.5L17 14H21C21.6 14 22 13.6 22 13V12C22 11.4 21.6 11 21 11M3 11C2.4 11 2 11.4 2 12V13C2 13.6 2.4 14 3 14H7L8.5 12.5C8.9 12.1 8.9 11.6 8.5 11.2L6.8 9.5C6.4 9.1 5.9 9.1 5.5 9.5L4 11H3M12 15C10.3 15 8.7 15.3 7.2 15.9C5.8 16.5 5 17.9 5 19.4V22H19V19.4C19 17.9 18.2 16.5 16.8 15.9C15.3 15.3 13.7 15 12 15Z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2 text-eco-dark-green">Shampoo Sólido</h3>
-                    <p class="text-gray-600 mb-4 font-light">Libre de químicos dañinos, duradero y con ingredientes naturales para todo tipo de cabello.</p>
-                    <button class="text-eco-green font-semibold hover:text-eco-dark-green transition-colors">Ver más →</button>
-                </div>
-                
-                <div class="bg-white rounded-2xl p-6 shadow-lg card-hover fade-in">
-                    <div class="w-full h-48 bg-eco-beige rounded-xl mb-4 flex items-center justify-center">
-                        <svg class="w-16 h-16 text-eco-green" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M4.5 12.5C4.5 13.88 5.62 15 7 15S9.5 13.88 9.5 12.5 8.38 10 7 10 4.5 11.12 4.5 12.5M7 8.5C9.21 8.5 11 10.29 11 12.5S9.21 16.5 7 16.5 3 14.71 3 12.5 4.79 8.5 7 8.5M17 8.5C19.21 8.5 21 10.29 21 12.5S19.21 16.5 17 16.5 13 14.71 13 12.5 14.79 8.5 17 8.5M17 10C15.62 10 14.5 11.12 14.5 12.5S15.62 15 17 15 19.5 13.88 19.5 12.5 18.38 10 17 10M12 1L10.5 6H13.5L12 1M12 18L13.5 23H10.5L12 18Z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2 text-eco-dark-green">Cepillo de Bambú</h3>
-                    <p class="text-gray-600 mb-4 font-light">Cepillo dental biodegradable con cerdas suaves, perfecto para una higiene bucal sostenible.</p>
-                    <button class="text-eco-green font-semibold hover:text-eco-dark-green transition-colors">Ver más →</button>
-                </div>
-                
-                <div class="bg-white rounded-2xl p-6 shadow-lg card-hover fade-in">
-                    <div class="w-full h-48 bg-eco-beige rounded-xl mb-4 flex items-center justify-center">
-                        <svg class="w-16 h-16 text-eco-green" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2C13.1 2 14 2.9 14 4V8H10V4C10 2.9 10.9 2 12 2M16 8V4C16 1.8 14.2 0 12 0S8 1.8 8 4V8C6.9 8 6 8.9 6 10V20C6 21.1 6.9 22 8 22H16C17.1 22 18 21.1 18 20V10C18 8.9 17.1 8 16 8M12 17C10.9 17 10 16.1 10 15S10.9 13 12 13 14 13.9 14 15 13.1 17 12 17Z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2 text-eco-dark-green">Bombilla de Acero</h3>
-                    <p class="text-gray-600 mb-4 font-light">Bombilla reutilizable de acero inoxidable, ideal para mate y bebidas calientes o frías.</p>
-                    <button class="text-eco-green font-semibold hover:text-eco-dark-green transition-colors">Ver más →</button>
-                </div>
-                
-                <div class="bg-white rounded-2xl p-6 shadow-lg card-hover fade-in">
-                    <div class="w-full h-48 bg-eco-beige rounded-xl mb-4 flex items-center justify-center">
-                        <svg class="w-16 h-16 text-eco-green" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M19 7H16V6A4 4 0 0 0 8 6V7H5A1 1 0 0 0 4 8V19A3 3 0 0 0 7 22H17A3 3 0 0 0 20 19V8A1 1 0 0 0 19 7M10 6A2 2 0 0 1 14 6V7H10V6M18 19A1 1 0 0 1 17 20H7A1 1 0 0 1 6 19V9H8V10A1 1 0 0 0 10 10A1 1 0 0 0 10 10V9H14V10A1 1 0 0 0 16 10A1 1 0 0 0 14 10V9H18V19Z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2 text-eco-dark-green">Bolsas Reutilizables</h3>
-                    <p class="text-gray-600 mb-4 font-light">Bolsas de tela resistentes y lavables, perfectas para tus compras diarias sin plástico.</p>
-                    <button class="text-eco-green font-semibold hover:text-eco-dark-green transition-colors">Ver más →</button>
-                </div>
-            </div>
-        </div>
-    </section>
+  <section class="hero">
+    <h2>Cuidamos el planeta, cuidando tu vida</h2>
+    <p>Descubre una nueva forma de vivir conscientemente con productos ecológicos que respetan el medio ambiente y tu bienestar.</p>
+    <button>Explorar productos</button>
+  </section>
 
-    <!-- Beneficios Section -->
-    <section id="beneficios" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-16 text-eco-dark-green fade-in">¿Por qué elegir EcoMarket?</h2>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="text-center fade-in">
-                    <div class="w-16 h-16 bg-eco-light-green rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-8 h-8 text-eco-green" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3 text-eco-dark-green">Reducción de Plástico</h3>
-                    <p class="text-gray-600 font-light">Nuestros productos eliminan la necesidad de envases plásticos, reduciendo significativamente tu huella ambiental.</p>
-                </div>
-                
-                <div class="text-center fade-in">
-                    <div class="w-16 h-16 bg-eco-light-green rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-8 h-8 text-eco-green" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22L6.66 19.7C7.14 19.87 7.64 20 8 20C19 20 22 3 22 3C21 5 14 5.25 9 6.25C4 7.25 2 11.5 2 13.5C2 15.5 3.75 17.25 3.75 17.25C7.5 15 8.5 14.5 11.5 14.5C14.5 14.5 16.5 16.5 16.5 16.5C18.5 15.5 18.5 13.5 18.5 13.5C18.5 11.5 17 8 17 8Z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3 text-eco-dark-green">100% Biodegradable</h3>
-                    <p class="text-gray-600 font-light">Todos nuestros productos se descomponen naturalmente, regresando nutrientes a la tierra sin contaminar.</p>
-                </div>
-                
-                <div class="text-center fade-in">
-                    <div class="w-16 h-16 bg-eco-light-green rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-8 h-8 text-eco-green" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2C6.48 2 2 6.48 2 12S6.48 22 12 22 22 17.52 22 12 17.52 2 12 2M12 20C7.59 20 4 16.41 4 12S7.59 4 12 4 20 7.59 20 12 16.41 20 12 20M15.88 8.29L10 14.17L8.12 12.29C7.73 11.9 7.1 11.9 6.71 12.29S6.32 13.27 6.71 13.66L9.3 16.25C9.69 16.64 10.32 16.64 10.71 16.25L17.3 9.66C17.69 9.27 17.69 8.64 17.3 8.25S16.27 7.86 15.88 8.29Z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3 text-eco-dark-green">Reutilización</h3>
-                    <p class="text-gray-600 font-light">Productos diseñados para durar más tiempo, reduciendo la frecuencia de compra y el desperdicio.</p>
-                </div>
-                
-                <div class="text-center fade-in">
-                    <div class="w-16 h-16 bg-eco-light-green rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-8 h-8 text-eco-green" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2C6.48 2 2 6.48 2 12S6.48 22 12 22 22 17.52 22 12 17.52 2 12 2M12 20C7.59 20 4 16.41 4 12S7.59 4 12 4 20 7.59 20 12 16.41 20 12 20M16.59 7.58L10 14.17L7.41 11.59C7.02 11.2 6.39 11.2 6 11.59S5.61 12.61 6 13L9.29 16.29C9.68 16.68 10.31 16.68 10.7 16.29L17.7 9.29C18.09 8.9 18.09 8.27 17.7 7.88S17.27 7.49 16.88 7.88L16.59 7.58Z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3 text-eco-dark-green">Impacto Positivo</h3>
-                    <p class="text-gray-600 font-light">Cada compra contribuye a un futuro más sostenible y apoya iniciativas de conservación ambiental.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <section class="beneficios" id="beneficios">
+    <h3>¿Por qué elegir EcoMarket?</h3>
+    <div class="tarjeta">
+      <strong>🌿 Calidad garantizada:</strong> Productos con certificaciones ecológicas y materiales biodegradables.
+    </div>
+    <div class="tarjeta">
+      <strong>♻️ Economía circular:</strong> Reutilización inteligente que reduce residuos y extiende la vida útil.
+    </div>
+    <div class="tarjeta">
+      <strong>🚚 Envío responsable:</strong> Embalajes biodegradables y carbono neutro.
+    </div>
+  </section>
 
-    <!-- Nosotros Section -->
-    <section id="nosotros" class="py-20 bg-eco-beige">
-        <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-4xl font-bold mb-8 text-eco-dark-green fade-in">Nuestra Historia</h2>
-                
-                <div class="w-64 h-64 bg-eco-light-green rounded-full mx-auto mb-8 flex items-center justify-center fade-in">
-                    <svg class="w-32 h-32 text-eco-green" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M16 4C18.2 4 20 5.8 20 8C20 10.2 18.2 12 16 12C13.8 12 12 10.2 12 8C12 5.8 13.8 4 16 4M16 14C18.67 14 24 15.33 24 18V20H8V18C8 15.33 13.33 14 16 14M8 4C10.2 4 12 5.8 12 8C12 10.2 10.2 12 8 12C5.8 12 4 10.2 4 8C4 5.8 5.8 4 8 4M8 14C10.67 14 16 15.33 16 18V20H0V18C0 15.33 5.33 14 8 14Z"/>
-                    </svg>
-                </div>
-                
-                <p class="text-lg text-gray-700 leading-relaxed mb-8 font-light fade-in">
-                    EcoMarket nació de un proyecto escolar desarrollado por un grupo de jóvenes emprendedores comprometidos con el medio ambiente. 
-                    Nuestra misión es fomentar el consumo responsable y crear conciencia ambiental a través de productos ecológicos de alta calidad. 
-                    Creemos que pequeños cambios en nuestros hábitos diarios pueden generar un gran impacto positivo en nuestro planeta.
-                </p>
-                
-                <div class="grid md:grid-cols-3 gap-8 mt-12">
-                    <div class="text-center fade-in">
-                        <div class="text-3xl font-bold text-eco-green mb-2">500+</div>
-                        <p class="text-gray-600">Productos vendidos</p>
-                    </div>
-                    <div class="text-center fade-in">
-                        <div class="text-3xl font-bold text-eco-green mb-2">200kg</div>
-                        <p class="text-gray-600">Plástico evitado</p>
-                    </div>
-                    <div class="text-center fade-in">
-                        <div class="text-3xl font-bold text-eco-green mb-2">100+</div>
-                        <p class="text-gray-600">Familias eco-conscientes</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <section class="productos" id="productos">
+    <h3>Productos destacados</h3>
+    <div class="tarjeta">
+      <strong>Champú sólido ecológico:</strong> Fórmula natural sin sulfatos ni parabenos. Disponible en esencias naturales.
+    </div>
+    <div class="tarjeta">
+      <strong>Cepillos de bambú:</strong> Biodegradables, duraderos y amigables con tus encías.
+    </div>
+    <div class="tarjeta">
+      <strong>Bombillas reutilizables:</strong> De acero inoxidable, con cepillo de limpieza. Libres de BPA.
+    </div>
+    <div class="tarjeta">
+      <strong>Bolsas de algodón:</strong> Lavables, resistentes y hechas con algodón orgánico certificado.
+    </div>
+  </section>
 
-    <!-- Contacto Section -->
-    <section id="contacto" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-16 text-eco-dark-green fade-in">Contáctanos</h2>
-            
-            <div class="max-w-2xl mx-auto">
-                <form class="space-y-6 fade-in" onsubmit="handleSubmit(event)">
-                    <div>
-                        <label class="block text-gray-700 font-semibold mb-2">Nombre</label>
-                        <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-eco-green transition-colors" required>
-                    </div>
-                    
-                    <div>
-                        <label class="block text-gray-700 font-semibold mb-2">Email</label>
-                        <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-eco-green transition-colors" required>
-                    </div>
-                    
-                    <div>
-                        <label class="block text-gray-700 font-semibold mb-2">Mensaje</label>
-                        <textarea rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-eco-green transition-colors" required></textarea>
-                    </div>
-                    
-                    <button type="submit" class="w-full bg-eco-green text-white py-3 rounded-lg font-semibold btn-eco">
-                        Enviar mensaje
-                    </button>
-                </form>
-                
-                <div class="flex justify-center space-x-6 mt-12 fade-in">
-                    <a href="#" class="text-eco-green hover:text-eco-dark-green transition-colors">
-                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.024-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.347-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001.012.001z"/>
-                        </svg>
-                    </a>
-                    <a href="#" class="text-eco-green hover:text-eco-dark-green transition-colors">
-                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M24 4.557c-.883.392-1.832.656-2.828.7
+  <section class="impacto" id="impacto">
+    <h3>Nuestro impacto en números</h3>
+    <ul>
+      <li>✅ 10K+ familias satisfechas</li>
+      <li>✅ 50K envases plásticos evitados</li>
+      <li>✅ 15 productores locales</li>
+      <li>✅ 95% satisfacción del cliente</li>
+    </ul>
+  </section>
+
+  <section class="testimonios" id="testimonios">
+    <h3>Testimonios</h3>
+    <div class="tarjeta">“Los champús sólidos son increíbles y duran muchísimo más.” – María, CDMX</div>
+    <div class="tarjeta">“Me encanta saber que cada compra contribuye al medio ambiente.” – Carlos, Buenos Aires</div>
+    <div class="tarjeta">“Mis hijos están aprendiendo la importancia de cuidar el planeta.” – Ana, Bogotá</div>
+  </section>
+
+  <section class="contacto" id="contacto">
+    <div class="formulario">
+      <h3>Contáctanos</h3>
+      <form>
+        <input type="text" placeholder="Tu nombre">
+        <input type="email" placeholder="Tu email">
+        <textarea rows="4" placeholder="Tu mensaje"></textarea>
+        <button type="submit">Enviar mensaje</button>
+      </form>
+    </div>
+    <div class="info-contacto">
+      <h3>Información directa</h3>
+      <p>Email: contacto@ecomarket.com</p>
+      <p>Teléfono: +52 123 456 7890</p>
+      <p>Dirección: Calle Verde #123, Ciudad Sustentable</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>EcoMarket © 2024 - Todos los derechos reservados</p>
+  </footer>
+
+</body>
+</html>
