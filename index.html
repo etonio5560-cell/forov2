@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>EcoMarket — Cuidamos el planeta, cuidando tu vida</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="container nav">
+      <div class="brand" aria-label="EcoMarket">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M3 12c0 4.97 4.03 9 9 9s9-4.03 9-9S16.97 3 12 3" stroke="#1f8a44" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="8.5" cy="8.5" r="1.6" fill="#1f8a44"/>
+        </svg>
+        EcoMarket
+      </div>
+      <nav aria-label="Navegación principal">
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="productos.html">Productos</a></li>
+          <li><a href="nosotros/sobre-nosotros.html">Nosotros</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" aria-label="Abrir menú" style="background:none;border:0;font-size:22px">☰</button>
+    </div>
+  </header>
+  <!-- HERO -->
+  <section id="inicio" class="hero" role="region" aria-label="Intro EcoMarket">
+    <div class="container">
+      <h1>EcoMarket</h1>
+      <p>Cuidamos el planeta, cuidando tu vida</p>
+      <a class="cta" href="productos.html">Explorar productos</a>
+    </div>
+  </section>
+  <!-- PRODUCTOS -->
+  <section id="productos">
+    <div class="container">
+      <div class="section-title">
+        <h2>Nuestros Productos</h2>
+        <p>Descubre nuestra selección de productos ecológicos diseñados para un estilo de vida sostenible</p>
+      </div>
+      <div class="grid" role="list">
+        <!-- Tarjeta 1 -->
+        <a class="card" href="productos/shampoo-solido.html" role="listitem" aria-labelledby="p1">
+          <div class="thumb" aria-hidden="true">🧼</div>
+          <h3 id="p1">Shampoo Sólido</h3>
+          <p>Libre de químicos dañinos, duradero y con ingredientes naturales para todo tipo de cabello.</p>
+          <div class="more">Ver más →</div>
+        </a>
+        <!-- Tarjeta 2 -->
+        <a class="card" href="productos/cepillo-bambu.html" role="listitem" aria-labelledby="p2">
+          <div class="thumb" aria-hidden="true" style="background: linear-gradient(135deg,#fff6d6,#fff1e6); color:#b86b00">🪥</div>
+          <h3 id="p2">Cepillo de Bambú</h3>
+          <p>Cepillos biodegradables hechos de bambú sostenible con cerdas suaves.</p>
+          <div class="more">Ver más →</div>
+        </a>
+        <!-- Tarjeta 3 -->
+        <a class="card" href="productos/bombillas-acero.html" role="listitem" aria-labelledby="p3">
+          <div class="thumb" aria-hidden="true" style="background:#f4f7f8;color:#2b2b2b">🥤</div>
+          <h3 id="p3">Bombillas de Acero</h3>
+          <p>Bombillas reutilizables de acero inoxidable, perfectas para bebidas frías y calientes.</p>
+          <div class="more">Ver más →</div>
+        </a>
+        <!-- Tarjeta 4 -->
+        <a class="card" href="productos/bolsas-reutilizables.html" role="listitem" aria-labelledby="p4">
+          <div class="thumb" aria-hidden="true">🛍️</div>
+          <h3 id="p4">Bolsas Reutilizables</h3>
+          <p>Bolsas de tela orgánica resistentes y lavables, ideales para tus compras diarias.</p>
+          <div class="more">Ver más →</div>
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- BENEFICIOS -->
+  <section id="beneficios" class="benefits" aria-label="Beneficios EcoMarket">
+    <div class="container">
+      <div class="section-title">
+        <h2>¿Por qué elegir EcoMarket?</h2>
+        <p>Cada compra que realizas contribuye a un futuro más sostenible</p>
+      </div>
+      <div class="benefit-grid">
+        <div class="benefit">
+          <div class="icon" aria-hidden="true">➕</div>
+          <h4>Reducción de Plástico</h4>
+          <p>Nuestros productos eliminan la necesidad de envases plásticos, reduciendo tu huella ambiental.</p>
+        </div>
+        <div class="benefit">
+          <div class="icon" aria-hidden="true">🍃</div>
+          <h4>100% Biodegradable</h4>
+          <p>Productos que se descomponen naturalmente sin dejar residuos tóxicos.</p>
+        </div>
+        <div class="benefit">
+          <div class="icon" aria-hidden="true">🔁</div>
+          <h4>Reutilización</h4>
+          <p>Diseñados para durar más y ser reutilizados múltiples veces.</p>
+        </div>
+        <div class="benefit">
+          <div class="icon" aria-hidden="true">🌱</div>
+          <h4>Impacto Positivo</h4>
+          <p>Parte del beneficio se destina a proyectos de reforestación y educación ambiental.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- NOSOTROS -->
+  <section id="nosotros">
+    <div class="container">
+      <div class="section-title">
+        <h2>Nuestra Historia</h2>
+        <p>EcoMarket nació de un proyecto escolar con la misión de fomentar el consumo responsable y generar conciencia ambiental.</p>
+      </div>
+      <div class="two-col" style="margin-top:18px">
+        <div class="about-card" aria-hidden="true">👥</div>
+        <div>
+          <p style="color:var(--muted);line-height:1.6">
+            EcoMarket fue creado por un grupo de jóvenes emprendedores; lo que comenzó como una actividad académica se transformó en una misión real:
+            ofrecer alternativas sostenibles y fáciles de usar para el día a día. Creemos que pequeños cambios producen grandes efectos.
+          </p>
+          <p style="margin-top:12px"><a href="nosotros/sobre-nosotros.html" style="color:var(--green-700);font-weight:700">Jóvenes por el cambio →</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <div class="container">
+      <div class="section-title">
+        <h2>Contáctanos</h2>
+        <p>¿Tenés preguntas? Nos encantaría escucharte</p>
+      </div>
+      <div style="margin-top:18px" class="contact-form" aria-label="Formulario de contacto">
+        <form id="contactForm">
+          <label for="name">Tu nombre</label>
+          <input id="name" name="name" type="text" placeholder="Ej. Juan Pérez" required>
+          <label for="email">Tu email</label>
+          <input id="email" name="email" type="email" placeholder="ejemplo@mail.com" required>
+          <label for="message">Tu mensaje</label>
+          <textarea id="message" name="message" rows="5" placeholder="Escribí tu consulta..." required></textarea>
+          <button type="submit">Enviar mensaje</button>
+        </form>
+        <p style="margin-top:12px;color:var(--muted);font-size:14px">También podés escribirnos a <a href="mailto:info@ecomarket.com">info@ecomarket.com</a></p>
+      </div>
+    </div>
+  </section>
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <strong>EcoMarket</strong>
+          <p style="margin:8px 0 0 0">Un futuro más verde comienza hoy</p>
+        </div>
+        <div>
+          <h4 style="margin-bottom:8px">Enlaces rápidos</h4>
+          <nav aria-label="Enlaces footer">
+            <ul style="list-style:none;padding:0;margin:0;line-height:2">
+              <li><a href="#inicio" style="color:rgba(255,255,255,0.95)">Inicio</a></li>
+              <li><a href="productos.html" style="color:rgba(255,255,255,0.95)">Productos</a></li>
+              <li><a href="nosotros/sobre-nosotros.html" style="color:rgba(255,255,255,0.95)">Nosotros</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div>
+          <h4 style="margin-bottom:8px">Contacto</h4>
+          <p style="margin:0">info@ecomarket.com<br>+54 9 11 1234-5678</p>
+        </div>
+      </div>
+      <div style="margin-top:18px;text-align:center">
+        <small>© 2024 EcoMarket. Todos los derechos reservados.</small>
+      </div>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>
