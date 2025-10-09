@@ -24,7 +24,7 @@ if(form){
     alert('¡Gracias, ' + name + '! Tu mensaje fue recibido (simulado).');
     const subject = encodeURIComponent('Contacto desde EcoMarket - ' + name);
     const body = encodeURIComponent('Nombre: ' + name + '\nEmail: ' + email + '\n\n' + message);
-    window.location.href = 'mailto:info@ecomarket.com?subject=' + subject + '&body=' + body;
+    window.location.href = 'mailto:ecomarket.arg2025@gmail.com?subject=' + subject + '&body=' + body;
     form.reset();
   });
 }
