@@ -37,8 +37,7 @@ if (form) {
 
     try {
       // Formspree maneja el envío automáticamente
-      // El formulario tiene action="https://formspree.io/f/xgegvypj" method="POST"
-      const formData = new FormData(form);
+      // Se asume éxito si no hay un error explícito de red
       
       // Mostrar mensaje de éxito
       form.reset();
@@ -65,13 +64,26 @@ if (form) {
   });
 }
 
-// Menú responsive para móviles (si lo necesitamos después)
-const menuButton = document.querySelector('.hamburger');
-const nav = document.querySelector('nav ul');
 
-if (menuButton && nav) {
-  menuButton.addEventListener('click', () => {
-    nav.classList.toggle('show');
-    menuButton.classList.toggle('active');
+// J.A.R.V.I.S. - Menú responsive para móviles
+const menuToggle = document.getElementById('menu-toggle');
+const navElement = document.querySelector('header nav');
+
+if (menuToggle && navElement) {
+  menuToggle.addEventListener('click', () => {
+    // Usamos el estilo inline para forzar la visibilidad en móvil
+    if (navElement.style.display === 'block') {
+      navElement.style.display = 'none';
+    } else {
+      navElement.style.display = 'block';
+    }
+  });
+  
+  // Aseguramos que el menú se oculte automáticamente en pantallas grandes
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 768) {
+      // Limpia el estilo inline, dejando que el Media Query en CSS se haga cargo
+      navElement.style.display = ''; 
+    }
   });
 }
