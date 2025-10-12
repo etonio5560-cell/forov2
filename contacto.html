@@ -8,48 +8,105 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <!-- HEADER -->
   <header>
     <div class="container nav">
-      <div class="brand">
-        <img src="images/logo.jpg" alt="EcoMarket Logo" style="height:38px;border-radius:10px;margin-right:10px;">
-        EcoMarket
-      </div>
+      <img src="images/logo-header.jpg" alt="EcoMarket" style="height:54px;">
       <nav>
         <ul>
           <li><a href="index.html">Inicio</a></li>
           <li><a href="productos.html">Productos</a></li>
-          <li><a href="nosotros/sobre-nosotros.html">Nosotros</a></li>
+          <li><a href="nosotros/sobre-nosotros.html">Sobre Nosotros</a></li>
+          <li><a href="nosotros/valores.html">Valores</a></li>
+          <li><a href="nosotros/impacto-ambiental.html">Impacto</a></li>
           <li><a href="contacto.html" style="color:var(--green-700)">Contacto</a></li>
         </ul>
       </nav>
     </div>
   </header>
+
   <main>
-    <section style="padding-top:48px;">
+    <!-- Hero Section -->
+    <section style="background:linear-gradient(rgba(20,90,46,0.9), rgba(20,90,46,0.9)), url('images/contacto-hero.jpg');background-size:cover;background-position:center;color:white;padding:60px 0;text-align:center;">
       <div class="container">
-        <div class="section-title">
-          <h2>Contáctanos</h2>
-          <p>¿Tenés preguntas? Nos encantaría escucharte</p>
-        </div>
-        <div class="contact-form" style="max-width:440px;margin:0 auto;">
-          <form id="contactForm">
-            <label for="name">Tu nombre</label>
-            <input id="name" name="name" type="text" placeholder="Ej. Juan Pérez" required>
-            <label for="email">Tu email</label>
-            <input id="email" name="email" type="email" placeholder="ejemplo@mail.com" required>
-            <label for="message">Tu mensaje</label>
-            <textarea id="message" name="message" rows="5" placeholder="Escribí tu consulta..." required></textarea>
-            <button type="submit">Enviar mensaje</button>
-          </form>
-          <p style="margin-top:12px;color:var(--muted);font-size:14px">
-            También podés escribirnos a <a href="mailto:ecomarket.arg2025@gmail.com">ecomarket.arg2025@gmail.com</a>
-          </p>
+        <h1 style="font-size:40px;margin:0 0 20px 0;">Contactanos</h1>
+        <p style="font-size:18px;max-width:600px;margin:0 auto;opacity:0.9;">
+          Estamos aquí para responder tus dudas y ayudarte a elegir productos sostenibles.
+        </p>
+      </div>
+    </section>
+
+    <section style="padding:60px 0;">
+      <div class="container" style="max-width:1000px;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;">
+          <!-- Información de contacto -->
+          <div>
+            <h2 style="color:var(--green-700);margin-bottom:30px;">Información de Contacto</h2>
+            
+            <div style="margin-bottom:30px;">
+              <h3 style="font-size:16px;margin-bottom:15px;">Horario de atención</h3>
+              <p style="color:var(--muted);font-size:15px;line-height:1.6;">
+                Lunes a Viernes: 9:00 - 18:00<br>
+                Sábados: 9:00 - 13:00
+              </p>
+            </div>
+
+            <div style="margin-bottom:30px;">
+              <h3 style="font-size:16px;margin-bottom:15px;">Contacto directo</h3>
+              <p style="color:var(--muted);font-size:15px;line-height:1.6;">
+                Email: ecomarket.arg2025@gmail.com<br>
+                Teléfono: +54 2622 301133
+              </p>
+            </div>
+
+            <div class="card">
+              <h3 style="font-size:16px;margin-bottom:15px;">¿Por qué elegirnos?</h3>
+              <ul style="color:var(--muted);font-size:15px;margin:0;padding-left:20px;line-height:1.6;">
+                <li>Productos 100% sostenibles y eco-friendly</li>
+                <li>Asesoramiento personalizado</li>
+                <li>Envíos responsables con el medio ambiente</li>
+                <li>Compromiso con la satisfacción del cliente</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Formulario de contacto con Formspree -->
+          <div class="card">
+            <h2 style="color:var(--green-700);margin-bottom:20px;">Envianos un mensaje</h2>
+            <form action="https://formspree.io/f/xgegvypj" method="POST">
+              <div style="margin-bottom:15px;">
+                <label for="name" style="display:block;margin-bottom:8px;font-weight:600;">Tu nombre</label>
+                <input type="text" id="name" name="name" required 
+                       style="width:100%;padding:12px;border:1px solid rgba(16,50,58,0.1);border-radius:8px;">
+              </div>
+
+              <div style="margin-bottom:15px;">
+                <label for="email" style="display:block;margin-bottom:8px;font-weight:600;">Tu email</label>
+                <input type="email" id="email" name="email" required 
+                       style="width:100%;padding:12px;border:1px solid rgba(16,50,58,0.1);border-radius:8px;">
+              </div>
+
+              <div style="margin-bottom:15px;">
+                <label for="phone" style="display:block;margin-bottom:8px;font-weight:600;">Tu teléfono (opcional)</label>
+                <input type="tel" id="phone" name="phone"
+                       style="width:100%;padding:12px;border:1px solid rgba(16,50,58,0.1);border-radius:8px;">
+              </div>
+
+              <div style="margin-bottom:20px;">
+                <label for="message" style="display:block;margin-bottom:8px;font-weight:600;">Tu mensaje</label>
+                <textarea id="message" name="message" required rows="5"
+                          style="width:100%;padding:12px;border:1px solid rgba(16,50,58,0.1);border-radius:8px;"></textarea>
+              </div>
+
+              <button type="submit" class="cta" style="width:100%;text-align:center;">
+                Enviar mensaje
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </section>
   </main>
-  <!-- FOOTER -->
+
   <footer>
     <div class="container footer-grid">
       <div>
@@ -71,7 +128,7 @@
       </div>
     </div>
     <div style="margin-top:18px;text-align:center">
-      <small>© 2024 EcoMarket. Todos los derechos reservados.</small>
+      <small>© 2025 EcoMarket. Todos los derechos reservados.</small>
     </div>
   </footer>
   <script src="js/main.js"></script>
