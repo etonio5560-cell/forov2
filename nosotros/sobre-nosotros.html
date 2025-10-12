@@ -10,44 +10,109 @@
 <body>
   <header>
     <div class="container nav">
-      <div class="brand">
-        <img src="../images/logo.jpg" alt="EcoMarket Logo" style="height:38px;border-radius:10px;margin-right:10px;">
-        EcoMarket
-      </div>
+      <img src="../images/logo-header.jpg" alt="EcoMarket" style="height:54px;">
       <nav>
         <ul>
           <li><a href="../index.html">Inicio</a></li>
           <li><a href="../productos.html">Productos</a></li>
-          <li><a href="sobre-nosotros.html" style="color:var(--green-700)">Nosotros</a></li>
+          <li><a href="sobre-nosotros.html" style="color:var(--green-700)">Sobre Nosotros</a></li>
+          <li><a href="valores.html">Valores</a></li>
+          <li><a href="impacto-ambiental.html">Impacto</a></li>
           <li><a href="../contacto.html">Contacto</a></li>
         </ul>
       </nav>
     </div>
   </header>
+
   <main>
-    <section style="padding-top:48px;">
-      <div class="container" style="max-width:700px">
-        <div class="section-title">
-          <h2>Sobre Nosotros</h2>
-        </div>
-        <div class="card" style="margin-bottom:20px;">
-          <p>
+    <!-- Hero section con imagen de fondo -->
+    <section style="background:linear-gradient(rgba(20,90,46,0.9), rgba(20,90,46,0.9)), url('../images/sobre-nosotros-hero.jpg');background-size:cover;background-position:center;color:white;padding:80px 0;text-align:center;">
+      <div class="container">
+        <h1 style="font-size:40px;margin:0 0 20px 0;">Sobre Nosotros</h1>
+        <p style="font-size:18px;max-width:600px;margin:0 auto;opacity:0.9;">
+          Somos una tienda virtual dedicada a transformar los hábitos de consumo hacia prácticas más sostenibles y responsables con el medio ambiente.
+        </p>
+      </div>
+    </section>
+
+    <section style="padding:60px 0;">
+      <div class="container" style="max-width:800px;">
+        <div style="margin-bottom:40px;">
+          <img src="../images/sobre-nosotros.jpg" alt="Equipo EcoMarket" style="width:100%;border-radius:var(--radius);margin-bottom:30px;">
+          
+          <h2 style="color:var(--green-700);margin-bottom:20px;">Nuestra Historia</h2>
+          <p style="font-size:16px;line-height:1.7;color:var(--text);margin-bottom:20px;">
             EcoMarket nació como una respuesta a la necesidad urgente de transformar los hábitos de consumo hacia prácticas más sostenibles y responsables con el medio ambiente. 
             Somos una tienda virtual dedicada a la venta de productos ecológicos, que combina innovación tecnológica y compromiso ambiental para ofrecer una alternativa real frente al consumo tradicional.
           </p>
-          <p>
+          
+          <p style="font-size:16px;line-height:1.7;color:var(--text);margin-bottom:20px;">
             Nuestro equipo está conformado por jóvenes emprendedores con una visión clara: demostrar que es posible generar rentabilidad sin comprometer la salud del planeta. 
             Desde nuestros inicios, trabajamos con proveedores que comparten nuestros principios éticos, priorizando los productos reutilizables, reciclables y elaborados con materiales de bajo impacto ambiental.
           </p>
-          <p>
+          
+          <p style="font-size:16px;line-height:1.7;color:var(--text);">
             Creemos que el cambio comienza desde lo cotidiano. Por eso, EcoMarket busca facilitar el acceso a productos sostenibles mediante plataformas digitales simples, seguras y eficientes, 
             permitiendo a nuestros clientes adquirir lo que necesitan desde la comodidad de sus hogares, mientras contribuyen a un consumo más consciente y solidario con el entorno.
           </p>
-          <a href="valores.html" style="color:var(--green-700);font-weight:700;margin-top:18px;display:inline-block;">Nuestros valores →</a>
+        </div>
+
+        <!-- Sección Misión y Visión -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-bottom:40px;">
+          <div class="card">
+            <h3 style="color:var(--green-700);margin-bottom:15px;">Nuestra Misión</h3>
+            <p style="font-size:15px;line-height:1.6;color:var(--text);">
+              Facilitar el acceso a productos eco-amigables y promover un estilo de vida sostenible, 
+              contribuyendo activamente a la reducción del impacto ambiental a través de alternativas conscientes de consumo.
+            </p>
+          </div>
+          <div class="card">
+            <h3 style="color:var(--green-700);margin-bottom:15px;">Nuestra Visión</h3>
+            <p style="font-size:15px;line-height:1.6;color:var(--text);">
+              Ser líderes en la transformación hacia un consumo responsable, inspirando a las personas 
+              a tomar decisiones conscientes que beneficien tanto a la sociedad como al medio ambiente.
+            </p>
+          </div>
+        </div>
+
+        <!-- Sección Compromiso -->
+        <div style="background:var(--beige-100);padding:30px;border-radius:var(--radius);margin-bottom:40px;">
+          <h2 style="color:var(--green-700);margin-bottom:20px;">Nuestro Compromiso</h2>
+          <p style="font-size:16px;line-height:1.7;color:var(--text);margin-bottom:20px;">
+            En EcoMarket, cada decisión que tomamos está guiada por nuestro compromiso con la sostenibilidad. 
+            Desde la selección de productos hasta nuestros procesos logísticos, buscamos minimizar nuestra huella ambiental 
+            y maximizar nuestro impacto positivo en la comunidad.
+          </p>
+          <ul style="color:var(--text);font-size:15px;margin:0;padding-left:20px;line-height:1.6;">
+            <li>Evaluación rigurosa de proveedores y productos</li>
+            <li>Priorización de materiales sostenibles y biodegradables</li>
+            <li>Apoyo a productores locales y prácticas éticas</li>
+            <li>Educación continua sobre consumo responsable</li>
+            <li>Inversión en iniciativas ambientales y sociales</li>
+          </ul>
+        </div>
+
+        <!-- Enlaces a otras secciones -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+          <a href="valores.html" class="card" style="text-align:center;">
+            <h3 style="color:var(--green-700);margin-bottom:10px;">Nuestros Valores</h3>
+            <p style="font-size:14px;color:var(--muted);margin-bottom:15px;">
+              Conoce los principios que guían nuestras acciones y decisiones.
+            </p>
+            <span class="more">Explorar →</span>
+          </a>
+          <a href="impacto-ambiental.html" class="card" style="text-align:center;">
+            <h3 style="color:var(--green-700);margin-bottom:10px;">Impacto Ambiental</h3>
+            <p style="font-size:14px;color:var(--muted);margin-bottom:15px;">
+              Descubre cómo contribuimos a un futuro más sostenible.
+            </p>
+            <span class="more">Explorar →</span>
+          </a>
         </div>
       </div>
     </section>
   </main>
+
   <footer>
     <div class="container footer-grid">
       <div>
@@ -69,7 +134,7 @@
       </div>
     </div>
     <div style="margin-top:18px;text-align:center">
-      <small>© 2024 EcoMarket. Todos los derechos reservados.</small>
+      <small>© 2025 EcoMarket. Todos los derechos reservados.</small>
     </div>
   </footer>
   <script src="../js/main.js"></script>
