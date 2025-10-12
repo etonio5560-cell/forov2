@@ -23,443 +23,243 @@
   --card-shadow: 0 8px 20px rgba(16,50,58,0.06);
   --card-shadow-hover: 0 12px 30px rgba(16,50,58,0.1);
   --button-shadow: 0 8px 24px rgba(31,138,68,0.18);
-  --button-shadow-hover: 0 18px 36px rgba(31,138,68,0.22);
+  --button-shadow-hover: 0 10px 28px rgba(31,138,68,0.25);
   
-  /* Bordes y espaciado */
-  --radius-lg: 16px;
-  --radius: 14px;
-  --radius-sm: 10px;
-  --max-width: 1100px;
-  --header-height: 72px;
-  
-  /* Transiciones */
-  --transition-fast: 0.2s ease;
-  --transition-normal: 0.3s ease;
-  --transition-slow: 0.4s ease;
+  /* Geometría */
+  --radius: 12px;
+  --radius-sm: 8px;
+  --transition-fast: 0.2s;
+  --transition-normal: 0.3s;
 }
 
-/* Reset y estilos base */
-* { 
+/* Base */
+* {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: var(--header-height);
 }
 
 body {
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-family: 'Inter', sans-serif;
   color: var(--text);
-  background: #fff;
-  line-height: 1.45;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  border-radius: var(--radius-sm);
+  margin: 0;
+  padding: 0;
+  background: white;
+  line-height: 1.6;
 }
 
 a {
-  color: inherit;
   text-decoration: none;
-  transition: all var(--transition-fast);
-}
-
-/* Layout y contenedores */
-.container {
-  width: min(100% - 32px, var(--max-width));
-  margin-inline: auto;
-  padding-inline: 16px;
-}
-
-section {
-  padding: 64px 0;
-}
-
-/* Header y navegación */
-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(16,50,58,0.06);
-  transition: transform var(--transition-normal);
-}
-
-header.scroll-up {
-  transform: translateY(0);
-}
-
-header.scroll-down {
-  transform: translateY(-100%);
-}
-
-.nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: var(--header-height);
-}
-
-/* Ajuste específico para el logo del header */
-.nav img {
-  height: 54px;
-  width: auto;
-  border-radius: 0;
-}
-
-nav ul {
-  display: flex;
-  gap: 24px;
-  align-items: center;
-  list-style: none;
-}
-
-nav a {
-  font-weight: 600;
   color: var(--text);
-  position: relative;
-  padding: 6px 2px;
+  transition: color var(--transition-fast);
 }
 
-nav a::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: var(--green-500);
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform var(--transition-fast);
-}
-
-nav a:hover {
+a:hover {
   color: var(--green-700);
 }
 
-nav a:hover::after {
-  transform: scaleX(1);
-  transform-origin: left;
-}
-
-/* Hero section - ACTUALIZADO */
-.hero {
-  min-height: 70vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background: linear-gradient(120deg, var(--green-500) 0%, var(--green-700) 100%);
-  color: #fff;
-  padding: 80px 16px;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero .container {
-  width: 100%;
-  max-width: var(--max-width);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 24px;
-}
-
-/* Nuevo estilo para el logo del hero */
-.hero img {
-  max-width: 80%;
-  width: auto;
-  height: auto;
-  margin: 0 auto;
-  display: block;
-  object-fit: contain;
-  border-radius: 0;
-  animation: fadeInUp 0.6s var(--transition-normal) both;
-}
-
-.hero h1 {
-  font-size: clamp(32px, 5vw, 48px);
-  margin: 0;
+h1, h2, h3, h4 {
   font-weight: 800;
-  letter-spacing: -0.02em;
-  animation: fadeInUp 0.6s var(--transition-normal) 0.2s both;
+  line-height: 1.2;
+  margin-top: 0;
 }
 
-.hero p {
-  font-size: clamp(16px, 2.5vw, 20px);
-  margin: 0 0 32px 0;
-  opacity: 0.95;
-  max-width: 600px;
-  margin-inline: auto;
-  animation: fadeInUp 0.6s var(--transition-normal) 0.3s both;
-}
+h1 { font-size: 32px; }
+h2 { font-size: 28px; }
+h3 { font-size: 20px; }
+h4 { font-size: 16px; }
 
-/* Botones y CTAs */
-.cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--green-700);
-  color: #fff;
-  padding: 14px 32px;
-  border-radius: 40px;
-  font-weight: 700;
-  box-shadow: var(--button-shadow);
-  transition: all var(--transition-normal);
-  position: relative;
-  overflow: hidden;
-}
-
-.cta::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.2) 50%, transparent 100%);
-  transform: translateX(-100%);
-  transition: transform 0.6s;
-}
-
-.cta:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--button-shadow-hover);
-  background: var(--green-800);
-}
-
-.cta:hover::before {
-  transform: translateX(100%);
-}
-
-/* Sección de beneficios */
-.benefits {
-  background: var(--beige-100);
-  padding: 60px 0;
-  border-radius: var(--radius);
-  margin: 40px auto;
-  max-width: var(--max-width);
-  position: relative;
-  overflow: hidden;
-}
-
-.benefits::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('data:image/svg+xml,...'); /* Patrón de fondo sutil */
-  opacity: 0.4;
-}
-
-.benefit-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
-  margin-top: 40px;
-  position: relative;
-}
-
-.benefit {
-  background: white;
-  padding: 30px;
-  border-radius: var(--radius);
-  text-align: center;
-  transition: all var(--transition-normal);
-  position: relative;
-  z-index: 1;
-}
-
-.benefit:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--card-shadow-hover);
-}
-
-.benefit .icon {
-  width: 80px;
-  height: 80px;
-  margin: 0 auto 24px;
-  background: var(--green-200);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 28px;
-  color: var(--green-700);
-  transition: all var(--transition-normal);
-  position: relative;
-}
-
-.benefit .icon::after {
-  content: '';
-  position: absolute;
-  inset: -4px;
-  border-radius: 50%;
-  border: 2px solid var(--green-300);
-  opacity: 0;
-  transition: all var(--transition-normal);
-}
-
-.benefit:hover .icon {
-  transform: scale(1.1);
-  background: var(--green-300);
-}
-
-.benefit:hover .icon::after {
-  opacity: 1;
-  transform: scale(1.1);
-}
-
-.benefit h4 {
-  color: var(--green-900);
-  margin: 0 0 12px 0;
-  font-size: 18px;
-  font-weight: 700;
-}
-
-.benefit p {
-  color: var(--muted);
+p {
   font-size: 15px;
-  line-height: 1.6;
-  margin: 0;
+  color: var(--text-light);
 }
 
-/* Secciones y títulos */
+/* Contenedor principal */
+.container {
+  width: 100%;
+  max-width: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Secciones */
+.section-padded {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
 .section-title {
   text-align: center;
   margin-bottom: 40px;
 }
 
 .section-title h2 {
-  font-size: 32px;
-  margin: 0 0 12px 0;
-  font-weight: 800;
-  color: var(--text);
+  color: var(--green-700);
+  margin-bottom: 8px;
 }
 
 .section-title p {
   font-size: 18px;
   color: var(--muted);
-  max-width: 600px;
-  margin: 0 auto;
 }
 
-/* Grid y cards */
-.grid {
+/* Botones y CTA */
+.cta {
+  background: var(--green-700);
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  border-radius: var(--radius);
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  display: inline-block;
+  box-shadow: var(--button-shadow);
+  text-align: center;
+}
+
+.cta:hover {
+  background: var(--green-800);
+  box-shadow: var(--button-shadow-hover);
+  color: white;
+}
+
+.cta-secondary {
+  background: var(--beige-100);
+  color: var(--green-700);
+  border: 1px solid var(--green-300);
+  padding: 14px 24px;
+  border-radius: var(--radius);
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  display: inline-block;
+}
+
+.cta-secondary:hover {
+  background: var(--beige-200);
+  color: var(--green-800);
+}
+
+/* Header */
+header {
+  border-bottom: 1px solid var(--green-200);
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+}
+
+header nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+header nav ul li a {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(rgba(20,90,46,0.9), rgba(20,90,46,0.9)), url('images/hero.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 80px 0;
+  text-align: center;
+}
+
+.hero h1 {
+  color: white;
+  font-size: 40px;
+  margin-top: 20px;
+}
+
+.hero p {
+  color: var(--green-300);
+  font-size: 18px;
+  max-width: 600px;
+  margin: 15px auto 30px auto;
+}
+
+/* Grids de Productos */
+.product-grid {
   display: grid;
-  gap: 30px;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  margin-top: 40px;
+  grid-template-columns: 1fr; /* 1 columna por defecto (Móvil) */
+  gap: 20px;
 }
 
 .card {
-  background: #fff;
+  display: block;
+  background: white;
+  padding: 20px;
   border-radius: var(--radius);
   box-shadow: var(--card-shadow);
-  padding: 24px;
-  transition: all var(--transition-normal);
-  position: relative;
-  overflow: hidden;
-}
-
-.card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(90deg, var(--green-500), var(--green-700));
-  opacity: 0;
-  transition: opacity var(--transition-normal);
+  transition: box-shadow var(--transition-normal);
 }
 
 .card:hover {
-  transform: translateY(-5px);
   box-shadow: var(--card-shadow-hover);
 }
 
-.card:hover::before {
-  opacity: 1;
-}
-
 .card .thumb {
-  height: 220px;
-  border-radius: var(--radius);
-  margin: -24px -24px 20px -24px;
-  overflow: hidden;
-  position: relative;
-}
-
-.card .thumb img {
   width: 100%;
-  height: 100%;
+  height: auto;
+  aspect-ratio: 4/3;
   object-fit: cover;
-  transition: transform var(--transition-normal);
-}
-
-.card:hover .thumb img {
-  transform: scale(1.05);
+  border-radius: var(--radius-sm);
+  margin-bottom: 15px;
 }
 
 .card h3 {
-  margin: 0 0 12px 0;
-  font-size: 18px;
-  color: var(--text);
-  transition: color var(--transition-fast);
-}
-
-.card:hover h3 {
-  color: var(--green-700);
+  color: var(--green-800);
+  margin-bottom: 5px;
 }
 
 .card p {
-  margin: 0;
   color: var(--muted);
-  font-size: 15px;
-  line-height: 1.6;
+  font-size: 14px;
 }
 
 .card .more {
-  margin-top: 20px;
-  color: var(--green-700);
+  color: var(--green-500);
   font-weight: 700;
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  margin-top: 10px;
+  display: inline-block;
 }
 
-.card .more::after {
-  content: '→';
-  transition: transform var(--transition-fast);
+/* Secciones de Contenido General */
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
 }
 
-.card:hover .more::after {
-  transform: translateX(4px);
+.content-grid ul {
+  list-style: none;
+  padding: 0;
 }
 
-/* Formulario de contacto */
+.content-grid ul li {
+  background: var(--green-100);
+  padding: 15px 20px;
+  border-left: 4px solid var(--green-600);
+  margin-bottom: 10px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  color: var(--green-800);
+}
+
+/* Formularios */
 .contact-form {
-  max-width: 500px;
+  max-width: 600px;
   margin: 0 auto;
-  background: white;
-  padding: 32px;
+  background: var(--beige-50);
+  padding: 30px;
   border-radius: var(--radius);
   box-shadow: var(--card-shadow);
 }
@@ -509,34 +309,197 @@ nav a:hover::after {
 
 .contact-form button:hover {
   background: var(--green-800);
-  transform: translateY(-2px);
 }
 
-.contact-form button:disabled {
-  opacity: 0.7;
-  cursor: not-allowed;
-  transform: none;
+.product-info-box {
+  background: var(--beige-100);
+  padding: 25px;
+  border-radius: var(--radius);
+  border: 1px solid var(--green-200);
 }
 
-/* Footer */
+.product-info-box h3 {
+  color: var(--green-700);
+  border-bottom: 1px solid var(--green-300);
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.product-info-box ul {
+  list-style-type: '🌱 ';
+  padding-left: 20px;
+  margin: 0;
+}
+
+.product-info-box ul li {
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+/* ========================================= */
+/* J.A.R.V.I.S. OPTIMIZATION AND RESPONSIVENESS */
+/* ========================================= */
+
+/* 1. ESTILOS DEL HEADER (Elimina inline styles y añade responsividad) */
+.nav img {
+    height: 54px; /* Mantiene la altura visual original del logo */
+    max-width: 100%;
+    object-fit: contain;
+}
+
+/* Base de navegación (Móvil-First) */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* Ocultar el menú completo y mostrar el botón de 'Hamburguesa' por defecto (móvil) */
+.nav nav {
+    display: none;
+    /* Estilo adicional para mostrar el menú cuando JS lo activa */
+    position: absolute;
+    top: 94px; /* Altura calculada del header (54px logo + 20px top + 20px bottom) */
+    left: 0;
+    right: 0;
+    background: var(--beige-50);
+    z-index: 100;
+    box-shadow: var(--card-shadow);
+}
+
+.nav nav ul {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    margin: 0;
+    list-style: none;
+}
+
+.nav nav ul li a {
+    display: block;
+    padding: 10px 0;
+    width: 100%;
+    border-bottom: 1px solid var(--green-200);
+}
+
+/* Estilo para el botón de menú que debe estar visible solo en móvil */
+.hamburger {
+    display: block;
+    cursor: pointer;
+    font-size: 30px; 
+    color: var(--text);
+    background: none;
+    border: none;
+    padding: 0;
+    z-index: 101; /* Asegura que esté por encima del menú colapsado */
+}
+
+/* 2. ESTILOS DEL FOOTER (Elimina inline styles) */
 footer {
-  background: var(--green-900);
-  color: #fff;
-  padding: 60px 0 40px;
-  margin-top: 60px;
-  position: relative;
-  overflow: hidden;
+    background: var(--green-900);
+    color: white;
+    padding: 60px 0;
 }
 
-footer::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(90deg, var(--green-500), var(--green-700));
+.footer-grid strong {
+    font-size: 1.2em;
+    display: block;
+    margin-bottom: 5px;
 }
 
-.footer-grid {
-  display:
+.footer-grid h4 {
+    margin-bottom: 8px;
+    color: var(--green-300);
+}
+
+.footer-grid p {
+    margin: 8px 0 0 0;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.footer-grid nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    line-height: 2;
+}
+
+.footer-grid a {
+    color: rgba(255, 255, 255, 0.95);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.footer-grid a:hover {
+    color: var(--green-400);
+}
+
+/* 3. Media Query: Tablet y Desktop (A partir de 768px) */
+@media (min-width: 768px) {
+    .container {
+        /* Centrar y limitar ancho en pantallas grandes */
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    /* Mostrar la navegación completa */
+    .nav nav {
+        display: block !important; /* Sobrescribir el estilo inline de JS */
+        position: static;
+        background: none;
+        box-shadow: none;
+    }
+
+    /* Ocultar el botón de hamburguesa */
+    .hamburger {
+        display: none;
+    }
+
+    /* Configurar el menú horizontalmente */
+    .nav nav ul {
+        display: flex;
+        flex-direction: row;
+        gap: 24px;
+        padding: 0;
+    }
+    
+    .nav nav ul li a {
+      padding: 0;
+      border-bottom: none;
+    }
+
+    /* 4. Grids de Contenido (Productos) */
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablet */
+        gap: 30px;
+    }
+    
+    .content-grid {
+      grid-template-columns: repeat(2, 1fr); /* 2 columnas para contenido */
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+
+    /* Diseño de la página de producto individual */
+    .product-details-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr; /* 2 columnas para imagen y detalles */
+        gap: 30px;
+        margin-top: 40px;
+        align-items: flex-start;
+    }
+}
+
+/* 5. Media Query: Desktop Grande (A partir de 1024px) */
+@media (min-width: 1024px) {
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 columnas en desktop */
+    }
+}
