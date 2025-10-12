@@ -8,10 +8,10 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <!-- HEADER -->
   <header>
     <div class="container nav">
-      <img src="images/logo-header.jpg" alt="EcoMarket" style="height:54px;">
+      <img src="images/logo-header.jpg" alt="EcoMarket">
+      <button class="hamburger" id="menu-toggle" aria-label="Abrir menú">☰</button>
       <nav>
         <ul>
           <li><a href="index.html">Inicio</a></li>
@@ -32,56 +32,50 @@
           <h2>Nuestros Productos</h2>
           <p>Una selección cuidadosa de productos sostenibles para tu vida diaria</p>
         </div>
-        <div class="grid">
-          <!-- Shampoo Sólido -->
+
+        <div class="product-grid">
           <a class="card" href="productos/shampoo-solido.html">
             <img src="images/shampoo-solido.jpg" alt="Shampoo Sólido" class="thumb">
             <h3>Shampoo Sólido</h3>
-            <p>Natural, sin químicos dañinos, ideal para todo tipo de cabello.</p>
+            <p>Natural, sin químicos dañinos, para todo tipo de cabello.</p>
             <div class="more">Ver más →</div>
           </a>
 
-          <!-- Cepillo de Bambú -->
           <a class="card" href="productos/cepillo-bambu.html">
             <img src="images/cepillo-bambu.jpg" alt="Cepillo de Bambú" class="thumb">
             <h3>Cepillo de Bambú</h3>
-            <p>Bambú sostenible y biodegradable con cerdas suaves.</p>
+            <p>Higiene dental sostenible y biodegradable, adiós al plástico.</p>
             <div class="more">Ver más →</div>
           </a>
 
-          <!-- Bombillas de Acero -->
-          <a class="card" href="productos/bombillas-acero.html">
-            <img src="images/bombillas-acero.jpg" alt="Bombillas de Acero" class="thumb">
-            <h3>Bombillas de Acero</h3>
-            <p>Reutilizables, resistentes y aptas para cualquier bebida.</p>
-            <div class="more">Ver más →</div>
-          </a>
-
-          <!-- Bolsas Eco-Friendly -->
           <a class="card" href="productos/bolsas-eco-friendly.html">
             <img src="images/bolsas-eco-friendly.jpg" alt="Bolsas Eco-Friendly" class="thumb">
             <h3>Bolsas Eco-Friendly</h3>
-            <p>Orgánicas y resistentes para tus compras diarias.</p>
+            <p>Resistentes, reutilizables y respetuosas con el medio ambiente.</p>
             <div class="more">Ver más →</div>
           </a>
 
-          <!-- Masa Madre -->
+          <a class="card" href="productos/bombillas-acero.html">
+            <img src="images/bombillas-acero.jpg" alt="Bombillas de Acero" class="thumb">
+            <h3>Bombillas de Acero</h3>
+            <p>Alternativa duradera y fácil de limpiar a las pajitas de plástico.</p>
+            <div class="more">Ver más →</div>
+          </a>
+
           <a class="card" href="productos/masa-madre.html">
             <img src="images/masa-madre.jpg" alt="Masa Madre" class="thumb">
             <h3>Masa Madre</h3>
-            <p>Pan artesanal natural, elaborado con fermentación tradicional.</p>
+            <p>Pan artesanal con fermentación natural, saludable y delicioso.</p>
             <div class="more">Ver más →</div>
           </a>
 
-          <!-- Crema para el cuerpo -->
           <a class="card" href="productos/crema-cuerpo.html">
-            <img src="images/crema-cuerpo.jpg" alt="Crema para el cuerpo" class="thumb">
-            <h3>Crema para el cuerpo</h3>
+            <img src="images/crema-cuerpo.jpg" alt="Crema Corporal" class="thumb">
+            <h3>Crema Corporal</h3>
             <p>100% natural y vegana, hidratación profunda para tu piel.</p>
             <div class="more">Ver más →</div>
           </a>
 
-          <!-- Bolsas de Compost -->
           <a class="card" href="productos/bolsas-compost.html">
             <img src="images/bolsas-compost.jpg" alt="Bolsas de Compost" class="thumb">
             <h3>Bolsas de Compost</h3>
@@ -93,31 +87,30 @@
     </section>
   </main>
 
-  <!-- FOOTER -->
   <footer>
     <div class="container footer-grid">
       <div>
         <strong>EcoMarket</strong>
-        <p style="margin:8px 0 0 0">Un futuro más verde comienza hoy</p>
+        <p>Un futuro más verde comienza hoy</p>
       </div>
       <div>
-        <h4 style="margin-bottom:8px">Enlaces rápidos</h4>
+        <h4>Enlaces rápidos</h4>
         <nav>
-          <ul style="list-style:none;padding:0;margin:0;line-height:2">
-            <li><a href="index.html" style="color:rgba(255,255,255,0.95)">Inicio</a></li>
-            <li><a href="productos.html" style="color:rgba(255,255,255,0.95)">Productos</a></li>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="productos.html">Productos</a></li>
           </ul>
         </nav>
       </div>
       <div>
-        <h4 style="margin-bottom:8px">Contacto</h4>
-        <p style="margin:0">ecomarket.arg2025@gmail.com<br>+54 2622 301133</p>
+        <h4>Contacto</h4>
+        <p>ecomarket.arg2025@gmail.com</p>
+        <p>+54 9 11 5555-4321</p>
+        <p>Buenos Aires, Argentina</p>
       </div>
     </div>
-    <div style="margin-top:18px;text-align:center">
-      <small>© 2025 EcoMarket. Todos los derechos reservados.</small>
-    </div>
   </footer>
-  <script src="js/main.js"></script>
+
+  <script src="main.js"></script>
 </body>
 </html>
