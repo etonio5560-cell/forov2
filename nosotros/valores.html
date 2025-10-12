@@ -3,51 +3,144 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Valores — EcoMarket</title>
+  <title>Nuestros Valores — EcoMarket</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
   <header>
     <div class="container nav">
-      <div class="brand">
-        <img src="../images/logo.jpg" alt="EcoMarket Logo" style="height:38px;border-radius:10px;margin-right:10px;">
-        EcoMarket
-      </div>
+      <img src="../images/logo-header.jpg" alt="EcoMarket" style="height:54px;">
       <nav>
         <ul>
           <li><a href="../index.html">Inicio</a></li>
           <li><a href="../productos.html">Productos</a></li>
-          <li><a href="sobre-nosotros.html">Nosotros</a></li>
+          <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+          <li><a href="valores.html" style="color:var(--green-700)">Valores</a></li>
+          <li><a href="impacto-ambiental.html">Impacto</a></li>
           <li><a href="../contacto.html">Contacto</a></li>
         </ul>
       </nav>
     </div>
   </header>
+
   <main>
-    <section style="padding-top:48px;">
-      <div class="container" style="max-width:700px">
-        <div class="section-title">
-          <h2>Nuestros Valores</h2>
+    <!-- Hero section con imagen de fondo -->
+    <section style="background:linear-gradient(rgba(20,90,46,0.9), rgba(20,90,46,0.9)), url('../images/valores-hero.jpg');background-size:cover;background-position:center;color:white;padding:80px 0;text-align:center;">
+      <div class="container">
+        <h1 style="font-size:40px;margin:0 0 20px 0;">Nuestros Valores</h1>
+        <p style="font-size:18px;max-width:600px;margin:0 auto;opacity:0.9;">
+          Los principios que guían cada una de nuestras acciones y decisiones
+        </p>
+      </div>
+    </section>
+
+    <section style="padding:60px 0;">
+      <div class="container" style="max-width:800px;">
+        <!-- Introducción -->
+        <div style="margin-bottom:50px;text-align:center;">
+          <img src="../images/valores.jpg" alt="Valores EcoMarket" style="width:100%;max-width:600px;border-radius:var(--radius);margin-bottom:30px;">
+          
+          <p style="font-size:18px;line-height:1.7;color:var(--text);margin-bottom:20px;">
+            En EcoMarket nos guiamos por una serie de valores que representan la esencia de nuestra organización y orientan todas nuestras decisiones.
+            Estos principios fundamentales son el corazón de nuestra identidad y la base de nuestro compromiso con un futuro más sostenible.
+          </p>
         </div>
-        <div class="card" style="margin-bottom:20px;">
-          <p>
-            En EcoMarket nos guiamos por una serie de valores que representan la esencia de nuestra organización y orientan todas nuestras decisiones:
+
+        <!-- Grid de valores -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-bottom:50px;">
+          <!-- Compromiso ambiental -->
+          <div class="card">
+            <div style="background:var(--green-300);width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+              <span style="font-size:30px;">🌱</span>
+            </div>
+            <h3 style="color:var(--green-700);margin-bottom:15px;">Compromiso Ambiental</h3>
+            <p style="font-size:15px;line-height:1.6;color:var(--text);">
+              Cada acción que realizamos está pensada para reducir el impacto ecológico y promover un consumo sustentable.
+              Evaluamos cuidadosamente cada producto y proceso para asegurar la menor huella ambiental posible.
+            </p>
+          </div>
+
+          <!-- Transparencia -->
+          <div class="card">
+            <div style="background:var(--green-300);width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+              <span style="font-size:30px;">💫</span>
+            </div>
+            <h3 style="color:var(--green-700);margin-bottom:15px;">Transparencia</h3>
+            <p style="font-size:15px;line-height:1.6;color:var(--text);">
+              Creemos en la honestidad en cada paso de nuestro proceso, desde la selección de proveedores hasta la entrega final al cliente.
+              Compartimos información clara sobre nuestros productos y procesos.
+            </p>
+          </div>
+
+          <!-- Trabajo en equipo -->
+          <div class="card">
+            <div style="background:var(--green-300);width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+              <span style="font-size:30px;">🤝</span>
+            </div>
+            <h3 style="color:var(--green-700);margin-bottom:15px;">Trabajo en Equipo</h3>
+            <p style="font-size:15px;line-height:1.6;color:var(--text);">
+              Fomentamos la colaboración entre nuestros miembros y aliados estratégicos, construyendo una red sólida basada en el respeto mutuo
+              y los objetivos comunes. Creemos en el poder de la comunidad.
+            </p>
+          </div>
+
+          <!-- Innovación -->
+          <div class="card">
+            <div style="background:var(--green-300);width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+              <span style="font-size:30px;">💡</span>
+            </div>
+            <h3 style="color:var(--green-700);margin-bottom:15px;">Innovación</h3>
+            <p style="font-size:15px;line-height:1.6;color:var(--text);">
+              Buscamos constantemente nuevas formas de mejorar nuestros procesos, incorporando tecnologías que optimicen la experiencia del usuario
+              y la eficiencia de nuestras operaciones.
+            </p>
+          </div>
+
+          <!-- Responsabilidad social -->
+          <div class="card">
+            <div style="background:var(--green-300);width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+              <span style="font-size:30px;">🌍</span>
+            </div>
+            <h3 style="color:var(--green-700);margin-bottom:15px;">Responsabilidad Social</h3>
+            <p style="font-size:15px;line-height:1.6;color:var(--text);">
+              Entendemos que cada decisión empresarial tiene un impacto en la comunidad. Por eso, promovemos la educación ambiental
+              y el consumo ético, contribuyendo activamente al desarrollo sostenible.
+            </p>
+          </div>
+        </div>
+
+        <!-- Conclusión -->
+        <div style="background:var(--beige-100);padding:30px;border-radius:var(--radius);text-align:center;">
+          <h2 style="color:var(--green-700);margin-bottom:20px;">Nuestro Compromiso Continuo</h2>
+          <p style="font-size:16px;line-height:1.7;color:var(--text);">
+            Estos valores conforman la identidad de EcoMarket y nos impulsan a seguir creciendo de forma coherente con nuestra misión: 
+            ser parte activa del cambio hacia un modelo económico más justo y sostenible. Cada día trabajamos para mantener vivos estos principios
+            en cada aspecto de nuestra operación.
           </p>
-          <ul style="color:var(--muted);font-size:15px;margin:14px 0 0 0;padding:0 0 0 18px">
-            <li><strong>Compromiso ambiental:</strong> Cada acción que realizamos está pensada para reducir el impacto ecológico y promover un consumo sustentable.</li>
-            <li><strong>Transparencia:</strong> Creemos en la honestidad en cada paso de nuestro proceso, desde la selección de proveedores hasta la entrega final al cliente.</li>
-            <li><strong>Trabajo en equipo:</strong> Fomentamos la colaboración entre nuestros miembros y aliados estratégicos, construyendo una red sólida basada en el respeto mutuo y los objetivos comunes.</li>
-            <li><strong>Innovación:</strong> Buscamos constantemente nuevas formas de mejorar nuestros procesos, incorporando tecnologías que optimicen la experiencia del usuario y la eficiencia de nuestras operaciones.</li>
-            <li><strong>Responsabilidad social:</strong> Entendemos que cada decisión empresarial tiene un impacto en la comunidad. Por eso, promovemos la educación ambiental y el consumo ético.</li>
-          </ul>
-          <p style="margin-top:18px;">
-            Estos valores conforman la identidad de EcoMarket y nos impulsan a seguir creciendo de forma coherente con nuestra misión: ser parte activa del cambio hacia un modelo económico más justo y sostenible.
-          </p>
+        </div>
+
+        <!-- Enlaces a otras secciones -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px;">
+          <a href="sobre-nosotros.html" class="card" style="text-align:center;">
+            <h3 style="color:var(--green-700);margin-bottom:10px;">Sobre Nosotros</h3>
+            <p style="font-size:14px;color:var(--muted);margin-bottom:15px;">
+              Conoce nuestra historia y misión.
+            </p>
+            <span class="more">Explorar →</span>
+          </a>
+          <a href="impacto-ambiental.html" class="card" style="text-align:center;">
+            <h3 style="color:var(--green-700);margin-bottom:10px;">Impacto Ambiental</h3>
+            <p style="font-size:14px;color:var(--muted);margin-bottom:15px;">
+              Descubre cómo materializamos nuestros valores.
+            </p>
+            <span class="more">Explorar →</span>
+          </a>
         </div>
       </div>
     </section>
   </main>
+
   <footer>
     <div class="container footer-grid">
       <div>
@@ -69,7 +162,7 @@
       </div>
     </div>
     <div style="margin-top:18px;text-align:center">
-      <small>© 2024 EcoMarket. Todos los derechos reservados.</small>
+      <small>© 2025 EcoMarket. Todos los derechos reservados.</small>
     </div>
   </footer>
   <script src="../js/main.js"></script>
