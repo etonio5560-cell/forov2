@@ -11,31 +11,30 @@
   <!-- HEADER -->
   <header>
     <div class="container nav">
-      <div class="brand">
-        <img src="images/logo.jpg" alt="EcoMarket Logo" style="height:38px;border-radius:10px;margin-right:10px;">
-        EcoMarket
-      </div>
+      <!-- Logo como imagen única -->
+      <img src="images/logo-header.jpg" alt="EcoMarket" style="height:54px;">
       <nav>
         <ul>
           <li><a href="#inicio">Inicio</a></li>
           <li><a href="productos.html">Productos</a></li>
-          <li><a href="nosotros/sobre-nosotros.html">Nosotros</a></li>
+          <li><a href="nosotros/sobre-nosotros.html">Sobre Nosotros</a></li>
+          <li><a href="nosotros/valores.html">Valores</a></li>
+          <li><a href="nosotros/impacto-ambiental.html">Impacto</a></li>
           <li><a href="contacto.html">Contacto</a></li>
         </ul>
       </nav>
     </div>
   </header>
+
   <!-- HERO -->
   <section id="inicio" class="hero">
     <div class="container">
-      <div class="hero-logo" style="margin-bottom:16px;">
-        <img src="images/logo.jpg" alt="EcoMarket Logo Grande" style="height:84px;border-radius:20px;">
-      </div>
-      <h1>EcoMarket</h1>
-      <p>Cuidamos el planeta, cuidando tu vida</p>
+      <!-- Logo grande como imagen única -->
+      <img src="images/logo-hero.jpg" alt="EcoMarket" style="height:120px;margin-bottom:24px;">
       <a class="cta" href="productos.html">Explorar productos</a>
     </div>
   </section>
+
   <!-- PRODUCTOS DESTACADOS -->
   <section id="productos">
     <div class="container">
@@ -44,26 +43,30 @@
         <p>Descubre algunos de nuestros productos ecológicos favoritos</p>
       </div>
       <div class="grid">
+        <!-- Shampoo Sólido -->
         <a class="card" href="productos/shampoo-solido.html">
-          <div class="thumb" aria-hidden="true">🧼</div>
+          <img src="images/shampoo-solido.jpg" alt="Shampoo Sólido" class="thumb">
           <h3>Shampoo Sólido</h3>
           <p>Natural, sin químicos dañinos, para todo tipo de cabello.</p>
           <div class="more">Ver más →</div>
         </a>
+        <!-- Cepillo de Bambú -->
         <a class="card" href="productos/cepillo-bambu.html">
-          <div class="thumb" aria-hidden="true" style="background:linear-gradient(135deg,#fff6d6,#fff1e6); color:#b86b00">🪥</div>
+          <img src="images/cepillo-bambu.jpg" alt="Cepillo de Bambú" class="thumb">
           <h3>Cepillo de Bambú</h3>
           <p>Bambú sostenible y biodegradable con cerdas suaves.</p>
           <div class="more">Ver más →</div>
         </a>
+        <!-- Bolsas Eco-Friendly -->
         <a class="card" href="productos/bolsas-eco-friendly.html">
-          <div class="thumb" aria-hidden="true">🛍️</div>
+          <img src="images/bolsas-eco-friendly.jpg" alt="Bolsas Eco-Friendly" class="thumb">
           <h3>Bolsas Eco-Friendly</h3>
-          <p>Orgánicas y resistentes, ideales para tus compras diarias.</p>
+          <p>Orgánicas y resistentes para tus compras diarias.</p>
           <div class="more">Ver más →</div>
         </a>
+        <!-- Masa Madre -->
         <a class="card" href="productos/masa-madre.html">
-          <div class="thumb" aria-hidden="true" style="background:#fff9e6;color:#b89a59">🍞</div>
+          <img src="images/masa-madre.jpg" alt="Masa Madre" class="thumb">
           <h3>Masa Madre</h3>
           <p>Pan artesanal y natural, sin conservantes ni aditivos.</p>
           <div class="more">Ver más →</div>
@@ -74,6 +77,7 @@
       </div>
     </div>
   </section>
+
   <!-- BENEFICIOS -->
   <section id="beneficios" class="benefits">
     <div class="container">
@@ -83,48 +87,59 @@
       </div>
       <div class="benefit-grid">
         <div class="benefit">
-          <div class="icon" aria-hidden="true">➕</div>
+          <div class="icon">➕</div>
           <h4>Reducción de Plástico</h4>
           <p>Productos sin envases plásticos, reduciendo tu huella ambiental.</p>
         </div>
         <div class="benefit">
-          <div class="icon" aria-hidden="true">🍃</div>
+          <div class="icon">🍃</div>
           <h4>100% Biodegradable</h4>
           <p>Se descomponen naturalmente sin dejar residuos tóxicos.</p>
         </div>
         <div class="benefit">
-          <div class="icon" aria-hidden="true">🔁</div>
+          <div class="icon">🔁</div>
           <h4>Reutilización</h4>
           <p>Diseñados para durar más y ser reutilizados múltiples veces.</p>
         </div>
         <div class="benefit">
-          <div class="icon" aria-hidden="true">🌱</div>
+          <div class="icon">🌱</div>
           <h4>Impacto Positivo</h4>
           <p>Parte del beneficio se destina a proyectos de reforestación y educación ambiental.</p>
         </div>
       </div>
     </div>
   </section>
-  <!-- NOSOTROS BREVE -->
+
+  <!-- NOSOTROS -->
   <section id="nosotros">
     <div class="container">
       <div class="section-title">
         <h2>Sobre Nosotros</h2>
-        <p>En EcoMarket facilitamos el acceso a productos sostenibles y ecológicos, promoviendo el consumo responsable y el respeto por el medio ambiente.</p>
-        <a href="nosotros/sobre-nosotros.html" class="cta" style="margin-top:18px;display:inline-block;">Conocé más →</a>
+        <p>Descubre nuestra misión y valores para un futuro más sostenible</p>
+      </div>
+      <div class="grid" style="grid-template-columns:1fr 1fr 1fr">
+        <a href="nosotros/sobre-nosotros.html" class="card">
+          <img src="images/sobre-nosotros.jpg" alt="Sobre Nosotros" class="thumb">
+          <h3>Nuestra Historia</h3>
+          <p>Conoce cómo nació EcoMarket y nuestra misión por un planeta más verde.</p>
+          <div class="more">Leer más →</div>
+        </a>
+        <a href="nosotros/valores.html" class="card">
+          <img src="images/valores.jpg" alt="Nuestros Valores" class="thumb">
+          <h3>Valores</h3>
+          <p>Los principios que guían cada una de nuestras acciones.</p>
+          <div class="more">Leer más →</div>
+        </a>
+        <a href="nosotros/impacto-ambiental.html" class="card">
+          <img src="images/impacto.jpg" alt="Impacto Ambiental" class="thumb">
+          <h3>Impacto Ambiental</h3>
+          <p>Nuestro compromiso con el medio ambiente y acciones concretas.</p>
+          <div class="more">Leer más →</div>
+        </a>
       </div>
     </div>
   </section>
-  <!-- CONTACTO BREVE -->
-  <section id="contacto">
-    <div class="container">
-      <div class="section-title">
-        <h2>Contactanos</h2>
-        <p>¿Tenés preguntas? Nos encantaría escucharte</p>
-        <a href="contacto.html" class="cta" style="margin-top:18px;display:inline-block;">Ir al formulario</a>
-      </div>
-    </div>
-  </section>
+
   <!-- FOOTER -->
   <footer>
     <div class="container footer-grid">
@@ -138,6 +153,8 @@
           <ul style="list-style:none;padding:0;margin:0;line-height:2">
             <li><a href="#inicio" style="color:rgba(255,255,255,0.95)">Inicio</a></li>
             <li><a href="productos.html" style="color:rgba(255,255,255,0.95)">Productos</a></li>
+            <li><a href="nosotros/sobre-nosotros.html" style="color:rgba(255,255,255,0.95)">Sobre Nosotros</a></li>
+            <li><a href="contacto.html" style="color:rgba(255,255,255,0.95)">Contacto</a></li>
           </ul>
         </nav>
       </div>
@@ -150,6 +167,7 @@
       <small>© 2024 EcoMarket. Todos los derechos reservados.</small>
     </div>
   </footer>
+
   <script src="js/main.js"></script>
 </body>
 </html>
